@@ -47,7 +47,8 @@ public final class CustomSlider : UIView {
         slider.pinBottom(to: bottomAnchor, Constants.sliderBottom)
         slider.pinLeft(to: leadingAnchor, Constants.currentValueTop)
         
-        currentValueLabel.pinTop(to: slider.bottomAnchor, Constants.currentValueTop)
+        currentValueLabel.pinTop(to: slider.topAnchor, Constants.currentValueTop)
+        currentValueLabel.font = UIFont.systemFont(ofSize: Constants.currentValueFont)
     }
     
     @objc

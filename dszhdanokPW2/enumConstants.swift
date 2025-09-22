@@ -13,8 +13,8 @@ enum Constants {
     static let red: String = "Red"
     static let green: String = "Green"
     static let blue: String = "Blue"
-    static let stackRadius: CGFloat = 20
-    static let stackBottom: CGFloat = 230
+    static let stackRadius: CGFloat = 10
+    static let stackBottom: CGFloat = 250
     static let stackLeading: CGFloat = 20
     static let viewBottom: CGFloat = 20
     
@@ -28,5 +28,6 @@ enum Constants {
     static let titleViewLeading: CGFloat = 20
     static let sliderBottom: CGFloat = 35
     static let aliderLeding: CGFloat = 20
-    static let currentValueTop: CGFloat = 10
+    static let currentValueTop: CGFloat = 20
+    static let currentValueFont: CGFloat = 10
 }
