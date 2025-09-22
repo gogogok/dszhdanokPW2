@@ -39,20 +39,20 @@ public final class CustomSlider : UIView {
         }
         
         titleView.pinCenterX(to: centerXAnchor)
-        titleView.pinTop(to: topAnchor, 10)
-        titleView.pinLeft(to: leadingAnchor, 20)
+        titleView.pinTop(to: topAnchor, Constants.titleViewTop)
+        titleView.pinLeft(to: leadingAnchor, Constants.titleViewLeading)
         
         slider.pinTop(to: titleView.bottomAnchor)
         slider.pinCenterX(to: centerXAnchor)
-        slider.pinBottom(to: bottomAnchor, 35)
-        slider.pinLeft(to: leadingAnchor, 20)
+        slider.pinBottom(to: bottomAnchor, Constants.sliderBottom)
+        slider.pinLeft(to: leadingAnchor, Constants.currentValueTop)
         
-        currentValueLabel.pinTop(to: slider.bottomAnchor, 10)
+        currentValueLabel.pinTop(to: slider.bottomAnchor, Constants.currentValueTop)
     }
     
     @objc
     private func sliderValueChanged() {
         valueChanged?(Double(slider.value))
-        currentValueLabel.text = String(slider.value)
+        currentValueLabel.text = String(format: "%.2f", slider.value)
     }
 }

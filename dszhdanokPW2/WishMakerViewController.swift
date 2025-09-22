@@ -40,13 +40,13 @@ final class WishMakerViewController : UIViewController {
     private func configureDescription() {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = "This app will make your dreams come true. Now you will see it with your own eyes\n My first wish is to change the background of this app!\n\n (Just use the sliders!!)"
-        descriptionLabel.font = UIFont.systemFont(ofSize: 20)
+        descriptionLabel.font = UIFont.systemFont(ofSize: Constants.descriptionFont)
         descriptionLabel.textColor = getUniqueColor()
-        descriptionLabel.numberOfLines = 0
+        descriptionLabel.numberOfLines = Constants.descriptionNumberOfLines
         
         view.addSubview(descriptionLabel)
         descriptionLabel.pinTop(to: titleLable.bottomAnchor, Constants.viewBottom)
-        descriptionLabel.pinLeft(to: view.leadingAnchor, 20)
+        descriptionLabel.pinLeft(to: view.leadingAnchor, Constants.descriptionLeading)
         descriptionLabel.pinCenterX(to: view.centerXAnchor)
     }
     
