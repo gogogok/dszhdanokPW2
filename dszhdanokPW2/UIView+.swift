@@ -29,4 +29,10 @@ public extension UIView {
             translatesAutoresizingMaskIntoConstraints = false
             leadingAnchor.constraint(equalTo: otherViewLayout, constant: const).isActive = true
         }
+    
+    func changeWidth(_ const: Double = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: const).isActive = true
+    }
 }
+

@@ -11,6 +11,7 @@ final class WishMakerViewController : UIViewController {
     
     private let titleLable = UILabel()
     private let descriptionLabel = UILabel()
+    private let stack = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ final class WishMakerViewController : UIViewController {
         configureTitle()
         configureDescription()
         configureSliders()
+        configureButtonOffOnSliders()
     }
     
     private func configureTitle() {
@@ -51,7 +53,6 @@ final class WishMakerViewController : UIViewController {
     }
     
     private func configureSliders() {
-        let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         view.addSubview(stack)
@@ -84,5 +85,14 @@ final class WishMakerViewController : UIViewController {
         
     
     }
+    
+    private func configureButtonOffOnSliders() {
+        let buttonOffOnSliders = CustomButton(title: "Hide sliders", stack: stack)
+        view.addSubview(buttonOffOnSliders)
+        buttonOffOnSliders.pinTop(to: stack.topAnchor, -50)
+        buttonOffOnSliders.pinCenterX(to: view.centerXAnchor)
+        buttonOffOnSliders.changeWidth(250)
+    }
+    
     
 }

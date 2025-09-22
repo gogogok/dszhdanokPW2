@@ -20,6 +20,7 @@
 		F73358152E8089BA004EBAE6 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358142E8089BA004EBAE6 /* CustomSlider.swift */; };
 		F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */; };
 		F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733581A2E81DD35004EBAE6 /* enumConstants.swift */; };
+		F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733581E2E81FE33004EBAE6 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F73358142E8089BA004EBAE6 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorChangindMethods.swift; sourceTree = "<group>"; };
 		F733581A2E81DD35004EBAE6 /* enumConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumConstants.swift; sourceTree = "<group>"; };
+		F733581E2E81FE33004EBAE6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
 				F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */,
 				F733581A2E81DD35004EBAE6 /* enumConstants.swift */,
+				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
 			);
 			path = dszhdanokPW2;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */,
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
+				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
 				F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */,
 				F73358152E8089BA004EBAE6 /* CustomSlider.swift in Sources */,
 				F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 enum Constants {
     static let sliderMin: Double = 0
-    static let sliderMax: Double = 255
+    static let sliderMax: Double = 1.0
     static let red: String = "Red"
     static let green: String = "Green"
     static let blue: String = "Blue"

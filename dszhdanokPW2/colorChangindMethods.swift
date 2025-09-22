@@ -18,9 +18,9 @@ public func getUniqueColor() -> UIColor {
 }
 
 public func updateBackGroundColor(sliderRed : CustomSlider, sliderGreen : CustomSlider, sliderBlue : CustomSlider) -> UIColor {
-    let r = CGFloat(sliderRed.slider.value) / 255.0
-    let g = CGFloat(sliderGreen.slider.value) / 255.0
-    let b = CGFloat(sliderBlue.slider.value) / 255.0
+    let r = CGFloat(sliderRed.slider.value)
+    let g = CGFloat(sliderGreen.slider.value)
+    let b = CGFloat(sliderBlue.slider.value)
         
     return UIColor(red: r, green: g, blue: b, alpha: 1)
 }
