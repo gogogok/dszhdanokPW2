@@ -9,6 +9,13 @@ import UIKit
 
 enum Constants {
     
+    static let constahtForHEX: Double = 255.0
+    static let alphaFullValue: CGFloat = 1
+    static let formatForHex: String = "#%06X"
+    
+    static let shiftRed: Int = 16
+    static let shiftGreen: Int = 16
+    
     static let backGroundName: String = "MyBackgroundColor"
     static let titleLabelName: String = "WishMaker"
     
@@ -73,8 +80,9 @@ enum Constants {
     static let textrTrailing: CGFloat = -20
     static let textValueTop: CGFloat = 20
     static let textValueFont: CGFloat = 10
-    static let textValueWidth: CGFloat = 360
-    static let buttonValueWidth: CGFloat = 175
+    static let textValueRight: CGFloat = -20
+    static let textValueWidth: CGFloat = 350
+    static let buttonValueWidth: CGFloat = 170
     
     static let closeButtonLeft: CGFloat = 10
     static let closeButtonRight: CGFloat = -20

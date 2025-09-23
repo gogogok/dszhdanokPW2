@@ -37,7 +37,7 @@ class TextFieldConfiguration {
         textField.pinCenterX(to: view.centerXAnchor)
         textField.changeWidth(Constants.textValueWidth)
         textField.pinLeft(to: view.leadingAnchor, Constants.textrLeding)
-        textField.pinRight(to: view.trailingAnchor, Constants.textValueTop)
+        textField.pinRight(to: view.trailingAnchor, Constants.textValueRight)
         
         button.setTitle(Constants.textApply, for: .normal)
         button.backgroundColor = .systemBlue
@@ -65,11 +65,8 @@ class TextFieldConfiguration {
     }
     
     @objc static func buttonTapped() {
-        guard let textField = textField,
-                  let button = button,
-                  let closeButton = closeButton else {
-                return
-            }
+        guard let textField = textField
+        else { return }
         
         guard let text = textField.text, (!text.isEmpty && isValidFormat(text: textField.text!)) else {
             textField.text = Constants.emptyString

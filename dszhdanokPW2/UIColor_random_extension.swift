@@ -13,11 +13,11 @@ extension UIColor {
         let hex_sanitised = hex.replacingOccurrences(of: "#", with: "")
         var srgb : UInt64 = 0
         guard Scanner(string: hex_sanitised).scanHexInt64(&srgb) else {return nil} //чтение HEX числа из строки
-        let r = CGFloat((srgb & 0xFF0000) >> 16) / 255.0 //битовый сдвиг, чтобы остались только биты красного
-        let g = CGFloat((srgb & 0x00FF00) >> 8) / 255.0 //аналогично
-        let b = CGFloat(srgb & 0x0000FF) / 255.0 //аналогично
+        let r = CGFloat((srgb & 0xFF0000) >> Constants.shiftRed) / Constants.constahtForHEX //битовый сдвиг, чтобы остались только биты красного
+        let g = CGFloat((srgb & 0x00FF00) >> Constants.shiftGreen) / Constants.constahtForHEX //аналогично
+        let b = CGFloat(srgb & 0x0000FF) / Constants.constahtForHEX //аналогично
         
-        self.init(red: r, green: g, blue: b, alpha: 1) //передаём в инициализатор результаты
+        self.init(red: r, green: g, blue: b, alpha: Constants.alphaFullValue) //передаём в инициализатор результаты
     }
     
 }
