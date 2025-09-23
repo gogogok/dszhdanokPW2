@@ -21,6 +21,10 @@
 		F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */; };
 		F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733581A2E81DD35004EBAE6 /* enumConstants.swift */; };
 		F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733581E2E81FE33004EBAE6 /* CustomButton.swift */; };
+		F73358262E82B537004EBAE6 /* titleConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358252E82B537004EBAE6 /* titleConf.swift */; };
+		F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358272E82B641004EBAE6 /* descriptionConfig.swift */; };
+		F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358292E82B70D004EBAE6 /* sliderConfig.swift */; };
+		F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorChangindMethods.swift; sourceTree = "<group>"; };
 		F733581A2E81DD35004EBAE6 /* enumConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumConstants.swift; sourceTree = "<group>"; };
 		F733581E2E81FE33004EBAE6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		F73358252E82B537004EBAE6 /* titleConf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleConf.swift; sourceTree = "<group>"; };
+		F73358272E82B641004EBAE6 /* descriptionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descriptionConfig.swift; sourceTree = "<group>"; };
+		F73358292E82B70D004EBAE6 /* sliderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderConfig.swift; sourceTree = "<group>"; };
+		F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideButtonConfigure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F73358242E82B523004EBAE6 /* Configurations */,
 				F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */,
 				F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */,
 				F73357E72E8050D2004EBAE6 /* Assets.xcassets */,
@@ -140,6 +149,17 @@
 				F73358012E8050D3004EBAE6 /* dszhdanokPW2UITestsLaunchTests.swift */,
 			);
 			path = dszhdanokPW2UITests;
+			sourceTree = "<group>";
+		};
+		F73358242E82B523004EBAE6 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				F73358252E82B537004EBAE6 /* titleConf.swift */,
+				F73358272E82B641004EBAE6 /* descriptionConfig.swift */,
+				F73358292E82B70D004EBAE6 /* sliderConfig.swift */,
+				F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,12 +294,16 @@
 			files = (
 				F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */,
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
+				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
+				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
 				F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */,
 				F73358152E8089BA004EBAE6 /* CustomSlider.swift in Sources */,
 				F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */,
+				F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */,
 				F73358112E805E50004EBAE6 /* UIColor_random_extension.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
+				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
 				F73358132E80679E004EBAE6 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

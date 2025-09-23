@@ -11,11 +11,15 @@ public final class CustomButton : UIButton {
     
     var sliderStackView = UIStackView()
     
-    init(title: String, stack: UIStackView) {
+    init(title: String, stack: UIStackView, mainView: UIView) {
         super.init(frame: .zero)
         sliderStackView = stack
         self.setTitle(title, for: .normal)
         self.addTarget(self, action:  #selector(ActionButton), for: .touchUpInside)
+        configureUI(view: mainView)
+    }
+    
+    private func configureUI(view: UIView) {
         self.backgroundColor = getUniqueColor()
         self.layer.cornerRadius = Constants.buttomHideCornerRadius
     }

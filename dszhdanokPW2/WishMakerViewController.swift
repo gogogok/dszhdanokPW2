@@ -21,78 +21,9 @@ final class WishMakerViewController : UIViewController {
     
     private func configureUI() {
         view.backgroundColor = UIColor(named: Constants.backGroundName)
-        configureTitle()
-        configureDescription()
-        configureSliders()
-        configureButtonOffOnSliders()
+        TitleConfiguration.configureTitle(titleLable : titleLable, in: view)
+        DescriptionConfiguration.configureDescription(descriptionLabel: descriptionLabel, titleLable: titleLable, in: view)
+        SliderConfiguration.configureSliders(stack: stack, in: view)
+        HideButtonConfiguration.configureButton(stack: stack, in: view)
     }
-    
-    private func configureTitle() {
-        titleLable.translatesAutoresizingMaskIntoConstraints = false
-        titleLable.text = Constants.titleLabelName
-        titleLable.font = UIFont.systemFont(ofSize: Constants.fontSizeTitle, weight: .semibold)
-        titleLable.textColor = getUniqueColor()
-        
-        view.addSubview(titleLable)
-        titleLable.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
-        //titleLable.pinLeft(to: view.leadingAnchor, 20)
-        titleLable.pinCenterX(to: view.centerXAnchor)
-    }
-    
-    private func configureDescription() {
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = Constants.descriptionLabelText
-        descriptionLabel.font = UIFont.systemFont(ofSize: Constants.descriptionFont)
-        descriptionLabel.textColor = getUniqueColor()
-        descriptionLabel.numberOfLines = Constants.descriptionNumberOfLines
-        
-        view.addSubview(descriptionLabel)
-        descriptionLabel.pinTop(to: titleLable.bottomAnchor, Constants.viewBottom)
-        descriptionLabel.pinLeft(to: view.leadingAnchor, Constants.descriptionLeading)
-        descriptionLabel.pinCenterX(to: view.centerXAnchor)
-    }
-    
-    private func configureSliders() {
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        view.addSubview(stack)
-        stack.layer.cornerRadius = Constants.stackRadius
-        stack.clipsToBounds = true
-        
-        let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
-        let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
-        let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
-        
-        for slider in [sliderRed, sliderBlue, sliderGreen] {
-            stack.addArrangedSubview(slider)
-        }
-        
-        stack.pinCenterX(to: view.centerXAnchor)
-        stack.pinLeft(to: view.leadingAnchor, Constants.stackLeading)
-        stack.pinBottom(to: view.bottomAnchor, Constants.stackBottom)
-        
-        sliderRed.valueChanged = { [weak self] value in
-            self?.view.backgroundColor =  updateBackGroundColor(sliderRed: sliderRed, sliderGreen: sliderGreen, sliderBlue: sliderBlue)
-        }
-        
-        sliderBlue.valueChanged = { [weak self] value in
-            self?.view.backgroundColor =  updateBackGroundColor(sliderRed: sliderRed, sliderGreen: sliderGreen, sliderBlue: sliderBlue)
-        }
-        
-        sliderGreen.valueChanged = { [weak self] value in
-            self?.view.backgroundColor =  updateBackGroundColor(sliderRed: sliderRed, sliderGreen: sliderGreen, sliderBlue: sliderBlue)
-        }
-        
-    
-    }
-    
-    private func configureButtonOffOnSliders() {
-        let buttonOffOnSliders = CustomButton(title: Constants.hideButtonText, stack: stack)
-        view.addSubview(buttonOffOnSliders)
-        buttonOffOnSliders.pinTop(to: stack.topAnchor, Constants.buttomHideTop)
-        buttonOffOnSliders.pinCenterX(to: view.centerXAnchor)
-        buttonOffOnSliders.changeWidth(Constants.buttomHideWidth)
-    }
-    
-    
 }
