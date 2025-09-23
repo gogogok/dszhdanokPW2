@@ -8,6 +8,12 @@
 import UIKit
 
 enum Constants {
+    
+    static let backGroundName: String = "MyBackgroundColor"
+    static let titleLabelName: String = "WishMaker"
+    
+    static let descriptionLabelText: String = "This app will make your dreams come true. Now you will see it with your own eyes\n My first wish is to change the background of this app!\n\n (Just use the sliders!!)"
+    
     static let sliderMin: Double = 0
     static let sliderMax: Double = 1.0
     static let red: String = "Red"
@@ -30,4 +36,19 @@ enum Constants {
     static let aliderLeding: CGFloat = 20
     static let currentValueTop: CGFloat = 20
     static let currentValueFont: CGFloat = 10
+    
+    static let hideButtonText: String = "Hide sliders"
+    static let showButtonText: String = "Hide sliders"
+    
+    static let buttomHideTop: CGFloat = -50
+    static let buttomHideWidth: CGFloat = 250
+    static let buttomHideCornerRadius: CGFloat = 5
+    
+    static let durationOfAnimation: CGFloat = 0.5
+    static let buttonHiddenAlfaOn: CGFloat = 0
+    static let buttonHiddenAlfaOff: CGFloat = 1
+    
+    static let fatalErrorText: String = "init(coder:) has not been implemented"
+    
 }
+

@@ -17,7 +17,7 @@ public final class CustomButton : UIButton {
         self.setTitle(title, for: .normal)
         self.addTarget(self, action:  #selector(ActionButton), for: .touchUpInside)
         self.backgroundColor = getUniqueColor()
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = Constants.buttomHideCornerRadius
     }
     
     
@@ -25,24 +25,24 @@ public final class CustomButton : UIButton {
         let willHide = !sliderStackView.isHidden
         self.isEnabled = false
         
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: Constants.durationOfAnimation) {
             if willHide {
-                self.sliderStackView.alpha = 0
+                self.sliderStackView.alpha = Constants.buttonHiddenAlfaOn
             } else {
                 self.sliderStackView.isHidden = false
-                self.sliderStackView.alpha = 1
+                self.sliderStackView.alpha = Constants.buttonHiddenAlfaOff
             }
         } completion: { _ in
             if willHide {
                 self.sliderStackView.isHidden = true
             }
-            self.setTitle(willHide ? "Show Sliders" : "Hide Sliders", for: .normal)
+            self.setTitle(willHide ? Constants.showButtonText : Constants.hideButtonText, for: .normal)
             self.isEnabled = true
         }
     }
     
     @available (*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Constants.fatalErrorText)
     }
 }

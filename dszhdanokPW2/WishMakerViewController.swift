@@ -20,7 +20,7 @@ final class WishMakerViewController : UIViewController {
     
     
     private func configureUI() {
-        view.backgroundColor = UIColor(named: "MyBackgroundColor")
+        view.backgroundColor = UIColor(named: Constants.backGroundName)
         configureTitle()
         configureDescription()
         configureSliders()
@@ -29,7 +29,7 @@ final class WishMakerViewController : UIViewController {
     
     private func configureTitle() {
         titleLable.translatesAutoresizingMaskIntoConstraints = false
-        titleLable.text = "WishMaker"
+        titleLable.text = Constants.titleLabelName
         titleLable.font = UIFont.systemFont(ofSize: Constants.fontSizeTitle, weight: .semibold)
         titleLable.textColor = getUniqueColor()
         
@@ -41,7 +41,7 @@ final class WishMakerViewController : UIViewController {
     
     private func configureDescription() {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = "This app will make your dreams come true. Now you will see it with your own eyes\n My first wish is to change the background of this app!\n\n (Just use the sliders!!)"
+        descriptionLabel.text = Constants.descriptionLabelText
         descriptionLabel.font = UIFont.systemFont(ofSize: Constants.descriptionFont)
         descriptionLabel.textColor = getUniqueColor()
         descriptionLabel.numberOfLines = Constants.descriptionNumberOfLines
@@ -87,11 +87,11 @@ final class WishMakerViewController : UIViewController {
     }
     
     private func configureButtonOffOnSliders() {
-        let buttonOffOnSliders = CustomButton(title: "Hide sliders", stack: stack)
+        let buttonOffOnSliders = CustomButton(title: Constants.hideButtonText, stack: stack)
         view.addSubview(buttonOffOnSliders)
-        buttonOffOnSliders.pinTop(to: stack.topAnchor, -50)
+        buttonOffOnSliders.pinTop(to: stack.topAnchor, Constants.buttomHideTop)
         buttonOffOnSliders.pinCenterX(to: view.centerXAnchor)
-        buttonOffOnSliders.changeWidth(250)
+        buttonOffOnSliders.changeWidth(Constants.buttomHideWidth)
     }
     
     

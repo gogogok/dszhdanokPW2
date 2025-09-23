@@ -26,7 +26,7 @@ public final class CustomSlider : UIView {
     
     @available (*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Constants.fatalErrorText)
     }
     
     private func configureUI() {
