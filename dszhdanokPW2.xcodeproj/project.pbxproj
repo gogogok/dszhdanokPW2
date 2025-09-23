@@ -26,6 +26,7 @@
 		F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358292E82B70D004EBAE6 /* sliderConfig.swift */; };
 		F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */; };
 		F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */; };
+		F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F73358292E82B70D004EBAE6 /* sliderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderConfig.swift; sourceTree = "<group>"; };
 		F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideButtonConfigure.swift; sourceTree = "<group>"; };
 		F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionButtonsConfigure.swift; sourceTree = "<group>"; };
+		F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				F73358292E82B70D004EBAE6 /* sliderConfig.swift */,
 				F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */,
 				F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */,
+				F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */,
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
 				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
+				F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */,
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
 				F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */,

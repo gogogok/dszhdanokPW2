@@ -52,5 +52,36 @@ enum Constants {
     
     static let stackOfButtonsTop: CGFloat = 20
     
+    static let stackSpacing: CGFloat = 15
+    static let randomButtonLable :String =  "Random Background Color"
+    
+    static let hexButtonLable :String = "Enter HEX Code"
+    
+    static let stackNumberOfLines: Int = 0
+    static let stackButtonLeft: CGFloat = 10
+    static let stackButtonRight: CGFloat = -10
+    
+    static let stackButtonWidth: CGFloat = 100
+    static let stackButtonHeight: CGFloat = 60
+    static let buttonCreationFont: CGFloat = 14
+    
+    static let textFieldText: String = "Enter HEX code"
+    static let textApply: String = "Apply"
+    static let textClose: String = "Close"
+    
+    static let textrLeding: CGFloat = 20
+    static let textrTrailing: CGFloat = -20
+    static let textValueTop: CGFloat = 20
+    static let textValueFont: CGFloat = 10
+    static let textValueWidth: CGFloat = 360
+    static let buttonValueWidth: CGFloat = 175
+    
+    static let closeButtonLeft: CGFloat = 10
+    static let closeButtonRight: CGFloat = -20
+    
+    static let emptyString: String = ""
+    static let textFieldError: String = "Текст не введен или неверное значение HEX "
+    
+    static let pattern = "^#[0-9A-Fa-f]{0,6}$"
 }
 
