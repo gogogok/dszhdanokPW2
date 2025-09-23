@@ -25,6 +25,7 @@
 		F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358272E82B641004EBAE6 /* descriptionConfig.swift */; };
 		F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358292E82B70D004EBAE6 /* sliderConfig.swift */; };
 		F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */; };
+		F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F73358272E82B641004EBAE6 /* descriptionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descriptionConfig.swift; sourceTree = "<group>"; };
 		F73358292E82B70D004EBAE6 /* sliderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderConfig.swift; sourceTree = "<group>"; };
 		F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideButtonConfigure.swift; sourceTree = "<group>"; };
+		F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionButtonsConfigure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				F73358272E82B641004EBAE6 /* descriptionConfig.swift */,
 				F73358292E82B70D004EBAE6 /* sliderConfig.swift */,
 				F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */,
+				F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				F73358112E805E50004EBAE6 /* UIColor_random_extension.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
 				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
+				F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */,
 				F73358132E80679E004EBAE6 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

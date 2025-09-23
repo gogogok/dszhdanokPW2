@@ -30,9 +30,19 @@ public extension UIView {
             leadingAnchor.constraint(equalTo: otherViewLayout, constant: const).isActive = true
         }
     
+    func pinRight(to otherViewLayout: NSLayoutXAxisAnchor, _ const: Double = 0) {
+            translatesAutoresizingMaskIntoConstraints = false
+            trailingAnchor.constraint(equalTo: otherViewLayout, constant: const).isActive = true
+        }
+    
     func changeWidth(_ const: Double = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: const).isActive = true
+    }
+    
+    func changeHeight(_ const: Double = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: const).isActive = true
     }
 }
 

@@ -12,7 +12,7 @@ public class DescriptionConfiguration {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = Constants.descriptionLabelText
         descriptionLabel.font = UIFont.systemFont(ofSize: Constants.descriptionFont)
-        descriptionLabel.textColor = getUniqueColor()
+        descriptionLabel.textColor = getRandomHEXColor()
         descriptionLabel.numberOfLines = Constants.descriptionNumberOfLines
         
         view.addSubview(descriptionLabel)

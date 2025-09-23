@@ -7,7 +7,7 @@
 
 import UIKit
 
-public func getUniqueColor() -> UIColor {
+public func getRandomHEXColor() -> UIColor {
     var result = UIColor()
     let random = Int.random(in: 0...0xFFFFFF) //шеснадцатиричная запись числа
     let hex_string = String(format: "#%06X", random) //# - первая #,  % - спецификатор формата, 0 - заполнит недостоющие места нулями, 6 - количество символов, Х - шеснадцатиричный формат заглавными буквами
@@ -23,4 +23,14 @@ public func updateBackGroundColor(sliderRed : CustomSlider, sliderGreen : Custom
     let b = CGFloat(sliderBlue.slider.value)
         
     return UIColor(red: r, green: g, blue: b, alpha: 1)
+}
+
+public func getRandomColor() -> UIColor {
+    let color = UIColor(
+        displayP3Red: .random(in: 0...1),
+        green: .random(in: 0...1),
+        blue: .random(in: 0...1),
+        alpha: 1
+        )
+    return color
 }

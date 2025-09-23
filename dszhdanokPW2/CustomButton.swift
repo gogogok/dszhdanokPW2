@@ -20,7 +20,7 @@ public final class CustomButton : UIButton {
     }
     
     private func configureUI(view: UIView) {
-        self.backgroundColor = getUniqueColor()
+        self.backgroundColor = getRandomHEXColor()
         self.layer.cornerRadius = Constants.buttomHideCornerRadius
     }
     
@@ -42,6 +42,7 @@ public final class CustomButton : UIButton {
             }
             self.setTitle(willHide ? Constants.showButtonText : Constants.hideButtonText, for: .normal)
             self.isEnabled = true
+            
         }
     }
     

@@ -12,7 +12,7 @@ public class TitleConfiguration {
         titleLable.translatesAutoresizingMaskIntoConstraints = false
         titleLable.text = Constants.titleLabelName
         titleLable.font = UIFont.systemFont(ofSize: Constants.fontSizeTitle, weight: .semibold)
-        titleLable.textColor = getUniqueColor()
+        titleLable.textColor = getRandomHEXColor()
         
         view.addSubview(titleLable)
         titleLable.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
