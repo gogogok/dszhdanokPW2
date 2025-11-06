@@ -50,4 +50,10 @@ enum ClickerModel {
         struct Response { }
         struct ViewModel { }
     }
+    
+    enum PressShowStoringViewController {
+        struct Request { }
+        struct Response { }
+        struct ViewModel { }
+    }
 }

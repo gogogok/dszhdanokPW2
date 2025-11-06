@@ -17,6 +17,8 @@ protocol ClickerBusinessLogic{
     func loadPressCloseRGB(_ request: Model.PressCloseButton.Request)
     func loadChangeSlider(_ request: Model.PressChangeSlider.Request, slider: CustomSlider)
     
+    func loadWishStoring(_ request: Model.PressShowStoringViewController.Request)
+    
 }
 
 protocol ClickerPresentationLogic {
@@ -28,6 +30,7 @@ protocol ClickerPresentationLogic {
     func presentPressApplyRGB(_ response: Model.PressChangeApplyColor.Response)
     func presentPressCloseRGB(_ response: Model.PressCloseButton.Response)
     func presentChangeSlider(_ response: Model.PressChangeSlider.Response, slider: CustomSlider)
+    func presentWishStoring(_ response: Model.PressShowStoringViewController.Response)
     
 }
 

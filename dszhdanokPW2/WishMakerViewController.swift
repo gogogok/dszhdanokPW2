@@ -264,6 +264,10 @@ final class WishMakerViewController : UIViewController {
         self.closeButton = nil
     }
     
+    func displayWishStoringViewController(_ viewModel: Model.PressShowStoringViewController.ViewModel) {
+        present(WishStoringViewController(), animated: true)
+    }
+    
     
     private func isValidFormat(text: String) -> Bool {
         return text.range(of: Constants.pattern, options: .regularExpression) != nil

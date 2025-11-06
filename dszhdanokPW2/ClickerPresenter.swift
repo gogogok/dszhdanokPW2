@@ -43,4 +43,8 @@ final class ClickerPresenter: ClickerPresentationLogic {
     func presentChangeSlider(_ response: Model.PressChangeSlider.Response, slider: CustomSlider) {
         view?.displaySliderChange(Model.PressChangeSlider.ViewModel(), slider: slider)
     }
+    
+    func presentWishStoring(_ response: Model.PressShowStoringViewController.Response) {
+        view?.displayWishStoringViewController(Model.PressShowStoringViewController.ViewModel())
+    }
 }

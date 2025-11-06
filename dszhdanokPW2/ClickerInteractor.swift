@@ -10,12 +10,12 @@ import UIKit
 final class ClickerInteractor: ClickerBusinessLogic {
     // MARK: - Fields
     private let presenter: ClickerPresentationLogic
-
+    
     // MARK: - Lifecycle
     init(presenter: ClickerPresentationLogic) {
         self.presenter = presenter
     }
-
+    
     // MARK: - BusinessLogic
     func loadStart(_ request: Model.Start.Request) {
         presenter.presentStart(Model.Start.Response())
@@ -43,5 +43,9 @@ final class ClickerInteractor: ClickerBusinessLogic {
     
     func loadChangeSlider(_ request: Model.PressChangeSlider.Request, slider: CustomSlider) {
         presenter.presentChangeSlider(Model.PressChangeSlider.Response(), slider: slider)
+    }
+    
+    func loadWishStoring(_ request: Model.PressShowStoringViewController.Request) {
+        presenter.presentWishStoring(Model.PressShowStoringViewController.Response())
     }
 }
