@@ -1,3 +1,6 @@
+
+<h3>Я забыла пометить изменение архитектуры, как дз 3, очень извиняюсь((( </h3>
+
 Ответы на вопросы PW2
 
 1) Question: What issues prevent us from using storyboards in real projects?
