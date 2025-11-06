@@ -13,6 +13,7 @@
 		F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */; };
 		F72EF9BD2EBD210600595FBC /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */; };
 		F72EF9BF2EBD260900595FBC /* TableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */; };
+		F72EF9C12EBD2DC000595FBC /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */; };
 		F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */; };
 		F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */; };
 		F73357E82E8050D2004EBAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73357E72E8050D2004EBAE6 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishButtonConfiguration.swift; sourceTree = "<group>"; };
 		F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 		F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConfiguration.swift; sourceTree = "<group>"; };
+		F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
 		F73357DB2E8050D2004EBAE6 /* dszhdanokPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dszhdanokPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */,
 				F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */,
 				F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */,
 				F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */,
@@ -339,6 +342,7 @@
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
 				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
 				F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */,
+				F72EF9C12EBD2DC000595FBC /* WrittenWishCell.swift in Sources */,
 				F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */,
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
