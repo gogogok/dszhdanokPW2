@@ -5,19 +5,54 @@
 //  Created by Дарья Жданок on 23.09.25.
 //
 
-        
-
 import UIKit
 
-class ActionButtonsConfiguration {
+final class ActionButtonsConfiguration {
     
-    private static var mainView = UIView()
-    private static var stackST = UIStackView()
-    
-    static func configureButton(description: UILabel, stack:  UIStackView ,in view: UIView) {
+    enum Constants {
+        static let stackOfButtonsTop: CGFloat = 20
         
-        mainView = view
-        stackST = stack
+        static let stackSpacing: CGFloat = 15
+        static let randomButtonLable :String =  "Random Background Color"
+        
+        static let hexButtonLable :String = "Enter HEX Code"
+        
+        static let stackNumberOfLines: Int = 0
+        static let stackButtonLeft: CGFloat = 10
+        static let stackButtonRight: CGFloat = -10
+        
+        static let stackButtonWidth: CGFloat = 100
+        static let stackButtonHeight: CGFloat = 60
+        static let buttonCreationFont: CGFloat = 14
+        
+        static let stackRadius: CGFloat = 10
+    }
+    
+    
+    static func makeRandomButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle("Random Color", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+
+    static func makeHexButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle("HEX Color", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemGray
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    static func configureButton(description: UILabel, stack:  UIStackView ,in view: UIView, randomButton : UIButton, HEXButton: UIButton) {
+        
+        var mainView = view
+        var stackST = stack
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -26,8 +61,6 @@ class ActionButtonsConfiguration {
         stack.spacing = Constants.stackSpacing
         stack.distribution = .fillEqually
         
-        let randomButton = createButton(title: Constants.randomButtonLable, color: .white)
-        let HEXButton  = createButton(title: Constants.hexButtonLable, color: .white)
         
         for button in [randomButton, HEXButton] {
             stack.addArrangedSubview(button)
@@ -41,49 +74,7 @@ class ActionButtonsConfiguration {
         stack.changeWidth(Constants.stackButtonWidth)
         stack.changeHeight(Constants.stackButtonHeight)
         
-        randomButton.addTarget(self, action:  #selector(ActionButtonRandom(_ :)), for: .touchUpInside)
-        HEXButton.addTarget(self, action: #selector(ActionHEXButton(_ :)), for: .touchUpInside)
         
     }
-    
-    private static func createButton(title: String, color: UIColor) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setTitle(title, for: .normal)
-        button.backgroundColor = color
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: Constants.buttonCreationFont, weight: .semibold)
-        button.layer.cornerRadius = Constants.buttomHideCornerRadius
-        button.clipsToBounds = true
-        return button
-    }
-    
-    @objc static private func ActionButtonRandom( _ button: UIButton) {
-        button.isEnabled = false
-        UIView.animate(withDuration: Constants.durationOfAnimation) {
-            mainView.backgroundColor = getRandomColor()
-        } completion: { _ in
-            button.isEnabled = true
-        }
-    }
-    
-    @objc static private func ActionHEXButton( _ button: UIButton) {
-        button.isEnabled = false
-        UIView.animate(withDuration: Constants.durationOfAnimation) {
-            TextFieldConfiguration.configureText(in: mainView, stack: stackST)
-        } completion: { _ in
-            button.isEnabled = true
-        }
-    }
-    
-//    @objc static private func ActionColorPickerButton( _ button: UIButton) {
-//        button.isEnabled = false
-//        
-//        UIView.animate(withDuration: Constants.durationOfAnimation) {
-//        //TextFieldConfiguration.configureText()
-//            
-//        } completion: { _ in
-//            button.isEnabled = true
-//        }
-//    }
-    
 }
+

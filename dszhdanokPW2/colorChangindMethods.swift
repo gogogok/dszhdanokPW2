@@ -7,6 +7,11 @@
 
 import UIKit
 
+private enum Constants {
+    static let formatForHex: String = "#%06X"
+    static let alphaFullValue: CGFloat = 1.0
+}
+
 public func getRandomHEXColor() -> UIColor {
     var result = UIColor()
     let random = Int.random(in: 0...0xFFFFFF) //шеснадцатиричная запись числа

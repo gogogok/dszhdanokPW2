@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */; };
+		F72EF9B72EBBA3E800595FBC /* ClickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */; };
+		F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */; };
 		F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */; };
 		F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */; };
 		F73357E82E8050D2004EBAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73357E72E8050D2004EBAE6 /* Assets.xcassets */; };
@@ -19,7 +22,6 @@
 		F73358132E80679E004EBAE6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358122E80679E004EBAE6 /* UIView+.swift */; };
 		F73358152E8089BA004EBAE6 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358142E8089BA004EBAE6 /* CustomSlider.swift */; };
 		F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */; };
-		F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733581A2E81DD35004EBAE6 /* enumConstants.swift */; };
 		F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733581E2E81FE33004EBAE6 /* CustomButton.swift */; };
 		F73358262E82B537004EBAE6 /* titleConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358252E82B537004EBAE6 /* titleConf.swift */; };
 		F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358272E82B641004EBAE6 /* descriptionConfig.swift */; };
@@ -27,6 +29,8 @@
 		F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */; };
 		F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */; };
 		F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */; };
+		F789F62A2EBB95930034CCF9 /* ClickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F789F6292EBB95810034CCF9 /* ClickerModel.swift */; };
+		F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CkickerAssembly.swift; sourceTree = "<group>"; };
+		F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerInteractor.swift; sourceTree = "<group>"; };
+		F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerPresenter.swift; sourceTree = "<group>"; };
 		F73357DB2E8050D2004EBAE6 /* dszhdanokPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dszhdanokPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +70,6 @@
 		F73358122E80679E004EBAE6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		F73358142E8089BA004EBAE6 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorChangindMethods.swift; sourceTree = "<group>"; };
-		F733581A2E81DD35004EBAE6 /* enumConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumConstants.swift; sourceTree = "<group>"; };
 		F733581E2E81FE33004EBAE6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F73358252E82B537004EBAE6 /* titleConf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleConf.swift; sourceTree = "<group>"; };
 		F73358272E82B641004EBAE6 /* descriptionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descriptionConfig.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 		F733582B2E82B931004EBAE6 /* hideButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideButtonConfigure.swift; sourceTree = "<group>"; };
 		F733582D2E82BD85004EBAE6 /* actionButtonsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionButtonsConfigure.swift; sourceTree = "<group>"; };
 		F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldConfiguration.swift; sourceTree = "<group>"; };
+		F789F6292EBB95810034CCF9 /* ClickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerModel.swift; sourceTree = "<group>"; };
+		F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F72EF9B32EBB994C00595FBC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
+				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		F73357D22E8050D2004EBAE6 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +138,12 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */,
+				F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */,
+				F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */,
+				F72EF9B32EBB994C00595FBC /* Entities */,
+				F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */,
+				F789F6282EBB95610034CCF9 /* Models */,
 				F73358242E82B523004EBAE6 /* Configurations */,
 				F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */,
 				F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */,
@@ -130,10 +153,7 @@
 				F733580E2E805372004EBAE6 /* WishMakerViewController.swift */,
 				F73358102E805E50004EBAE6 /* UIColor_random_extension.swift */,
 				F73358122E80679E004EBAE6 /* UIView+.swift */,
-				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
 				F73358162E809D9C004EBAE6 /* colorChangindMethods.swift */,
-				F733581A2E81DD35004EBAE6 /* enumConstants.swift */,
-				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
 			);
 			path = dszhdanokPW2;
 			sourceTree = "<group>";
@@ -166,6 +186,14 @@
 				F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		F789F6282EBB95610034CCF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F789F6292EBB95810034CCF9 /* ClickerModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,20 +326,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F733581B2E81DD35004EBAE6 /* enumConstants.swift in Sources */,
+				F72EF9B72EBBA3E800595FBC /* ClickerInteractor.swift in Sources */,
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
 				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
 				F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */,
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
+				F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */,
 				F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */,
 				F73358152E8089BA004EBAE6 /* CustomSlider.swift in Sources */,
 				F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */,
 				F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */,
 				F73358112E805E50004EBAE6 /* UIColor_random_extension.swift in Sources */,
+				F789F62A2EBB95930034CCF9 /* ClickerModel.swift in Sources */,
+				F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
 				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
 				F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */,
+				F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */,
 				F73358132E80679E004EBAE6 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

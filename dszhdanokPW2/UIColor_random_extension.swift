@@ -9,6 +9,14 @@ import UIKit
 
 extension UIColor {
     
+    private enum Constants {
+        static let shiftRed: UInt = 16
+        static let shiftGreen: UInt = 8
+        static let constahtForHEX: CGFloat = 255
+        static let alphaFullValue: CGFloat = 1
+    }
+    
+    
     convenience init?(hex: String) { //опциональный инициализатор
         let hex_sanitised = hex.replacingOccurrences(of: "#", with: "")
         var srgb : UInt64 = 0

@@ -8,23 +8,33 @@
 import UIKit
 
 public final class CustomSlider : UIView {
-    var valueChanged: ((Double) -> Void)?
+    public var valueChanged: ((Double) -> Void)?
     
     var slider = UISlider()
     var titleView = UILabel()
-    var currentValueLabel = UILabel()
+    public var currentValueLabel = UILabel()
+    
+    private enum Constants {
+        static let titleViewTop: CGFloat = 20
+        static let titleViewLeading: CGFloat = 20
+        static let sliderBottom: CGFloat = 35
+        static let aliderLeding: CGFloat = 20
+        static let currentValueTop: CGFloat = 20
+        static let currentValueFont: CGFloat = 10
+        static let fatalErrorText: String = "init(coder:) has not been implemented"
+    }
+    
     
     init(title: String, min: Double, max: Double) {
         super.init(frame: .zero)
         titleView.text = title
         slider.minimumValue = Float(min)
         slider.maximumValue = Float(max)
-        slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
         configureUI()
     }
     
     
-    @available (*, unavailable)
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError(Constants.fatalErrorText)
     }
@@ -49,11 +59,8 @@ public final class CustomSlider : UIView {
         
         currentValueLabel.pinTop(to: slider.topAnchor, Constants.currentValueTop)
         currentValueLabel.font = UIFont.systemFont(ofSize: Constants.currentValueFont)
+        
+        
     }
-    
-    @objc
-    private func sliderValueChanged() {
-        valueChanged?(Double(slider.value))
-        currentValueLabel.text = String(format: "%.2f", slider.value)
-    }
+
 }
