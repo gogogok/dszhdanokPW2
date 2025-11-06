@@ -30,8 +30,6 @@ final class WishMakerViewController : UIViewController {
     private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
     private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
     
-    
-    
     // MARK: - Constants
     private enum Constants {
         static let backGroundName: String = "MyBackgroundColor"
@@ -153,7 +151,7 @@ final class WishMakerViewController : UIViewController {
     
     @objc
     private func addWishButtonPressed() {
-        // this will be done later!
+        interactor.loadWishStoring(Model.PressShowStoringViewController.Request())
     }
     
     // MARK: - DisplayLogic
