@@ -11,12 +11,12 @@ class SliderConfiguration {
     
     private enum Constants {
         static let stackRadius: CGFloat = 10
-        static let stackBottom: CGFloat = 250
+        static let buttonTop: CGFloat = 10
         static let stackLeading: CGFloat = 20
         static let viewBottom: CGFloat = 20
     }
     
-    static func configureSliders(stack: UIStackView, in view: UIView,  sliderRed: CustomSlider, sliderBlue: CustomSlider, sliderGreen: CustomSlider) {
+    static func configureSliders(stack: UIStackView, in view: UIView,  sliderRed: CustomSlider, sliderBlue: CustomSlider, sliderGreen: CustomSlider, wishButton: UIButton) {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         view.addSubview(stack)
@@ -28,9 +28,10 @@ class SliderConfiguration {
             stack.addArrangedSubview(slider)
         }
         
+        stack.changeWidth(50)
         stack.pinCenterX(to: view.centerXAnchor)
         stack.pinLeft(to: view.leadingAnchor, Constants.stackLeading)
-        stack.pinBottom(to: view.bottomAnchor, Constants.stackBottom)
+        stack.pinBottom(to: wishButton.topAnchor, Constants.buttonTop)
     
     }
         

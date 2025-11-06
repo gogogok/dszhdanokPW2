@@ -51,7 +51,10 @@ public final class CustomSlider : UIView {
         titleView.pinCenterX(to: centerXAnchor)
         titleView.pinTop(to: topAnchor, Constants.titleViewTop)
         titleView.pinLeft(to: leadingAnchor, Constants.titleViewLeading)
+        slider.changeHeight(5)
         
+        slider.changeHeight(15)
+        slider.changeWidth(200)
         slider.pinTop(to: titleView.bottomAnchor)
         slider.pinCenterX(to: centerXAnchor)
         slider.pinBottom(to: bottomAnchor, Constants.sliderBottom)

@@ -10,6 +10,7 @@
 		F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */; };
 		F72EF9B72EBBA3E800595FBC /* ClickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */; };
 		F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */; };
+		F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */; };
 		F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */; };
 		F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */; };
 		F73357E82E8050D2004EBAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73357E72E8050D2004EBAE6 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CkickerAssembly.swift; sourceTree = "<group>"; };
 		F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerInteractor.swift; sourceTree = "<group>"; };
 		F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerPresenter.swift; sourceTree = "<group>"; };
+		F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishButtonConfiguration.swift; sourceTree = "<group>"; };
 		F73357DB2E8050D2004EBAE6 /* dszhdanokPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dszhdanokPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		F73358242E82B523004EBAE6 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */,
 				F73358252E82B537004EBAE6 /* titleConf.swift */,
 				F73358272E82B641004EBAE6 /* descriptionConfig.swift */,
 				F73358292E82B70D004EBAE6 /* sliderConfig.swift */,
@@ -260,7 +263,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					F73357DA2E8050D2004EBAE6 = {
 						CreatedOnToolsVersion = 15.4;
@@ -329,6 +332,7 @@
 				F72EF9B72EBBA3E800595FBC /* ClickerInteractor.swift in Sources */,
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
 				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
+				F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */,
 				F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */,
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,

@@ -51,9 +51,6 @@ final class ActionButtonsConfiguration {
     
     static func configureButton(description: UILabel, stack:  UIStackView ,in view: UIView, randomButton : UIButton, HEXButton: UIButton) {
         
-        var mainView = view
-        var stackST = stack
-        
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         view.addSubview(stack)
