@@ -16,9 +16,14 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
     
     private var inputText: String = ""
     
+    private let defaults = UserDefaults.standard
+    
+    private weak var addCell: AddWishCell?
+    
     private enum Constants {
         static let numberOfSections : Int = 2
         static let fatalError: String = "init(coder:) has not been implemented"
+        static let wishesKey = "userWishes"
     }
     
     // MARK: - LifeCycle
@@ -40,9 +45,12 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
     
     override func viewDidLoad() {
         view.backgroundColor = .blue
+        wishArray = defaults.array(forKey: Constants.wishesKey) as? [String] ?? wishArray
         configureUI()
         table.register(WrittenWishCell.self, forCellReuseIdentifier: WrittenWishCell.reuseId)
         table.register(AddWishCell.self, forCellReuseIdentifier: AddWishCell.reuseId)
+        //стереть у себя userdefaults по ключу, чтобы при перезапуске не было новых желаний
+        //UserDefaults.standard.removeObject(forKey: Constants.wishesKey)
     }
     
     // MARK: - Actions
@@ -64,9 +72,7 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
     
 
     func displayAddWishToArray(_ vm: Model.PressAddNewWish.ViewModel) {
-        print("display on:", ObjectIdentifier(self), "text:", vm.text)
-        self.wishArray.append(vm.text)
-        table.reloadData()
+        addCell?.addWish?(vm.text)
     }
 }
 
@@ -100,10 +106,12 @@ extension WishStoringViewController: UITableViewDataSource {
             guard let wishCell = cell as? AddWishCell else { return cell}
             wishCell.bindAddTarget(self, action: #selector(addWish))
             inputText = wishCell.getText() ?? ""
+            addCell = wishCell
             wishCell.addWish = { [weak self] wish in
                 guard let self = self else { return }
                 self.wishArray.append(wish)
-                self.table.reloadData()
+                defaults.set(wishArray, forKey: Constants.wishesKey)
+                table.reloadData()
             }
             
             return wishCell
