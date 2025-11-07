@@ -11,6 +11,7 @@ enum ClickerAssembly {
     static func build() -> UIViewController {
         let presenter: ClickerPresenter = ClickerPresenter()
         let interactor: ClickerInteractor = ClickerInteractor(presenter: presenter)
+        
         let viewController: WishMakerViewController = WishMakerViewController(
             interactor: interactor
         )

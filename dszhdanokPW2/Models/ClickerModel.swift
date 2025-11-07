@@ -56,4 +56,11 @@ enum ClickerModel {
         struct Response { }
         struct ViewModel { }
     }
+    
+    enum PressAddNewWish {
+        struct Request { let text: String }
+        struct Response { let text: String }
+        struct ViewModel { let text: String }
+    }
+    
 }

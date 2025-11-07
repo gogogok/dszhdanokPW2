@@ -9,7 +9,7 @@ import UIKit
 
 final class ClickerInteractor: ClickerBusinessLogic {
     // MARK: - Fields
-    private let presenter: ClickerPresentationLogic
+    private var presenter: ClickerPresentationLogic
     
     // MARK: - Lifecycle
     init(presenter: ClickerPresentationLogic) {
@@ -48,4 +48,20 @@ final class ClickerInteractor: ClickerBusinessLogic {
     func loadWishStoring(_ request: Model.PressShowStoringViewController.Request) {
         presenter.presentWishStoring(Model.PressShowStoringViewController.Response())
     }
+    
+    func loadAddWish(_ req: Model.PressAddNewWish.Request) {
+    
+        presenter.presentAddWish(Model.PressAddNewWish.Response(text: req.text))
+    }
+    
+    func attachSecondView(_ view: ClickerSecondDisplayLogic) {
+            presenter.secondView = view
+        }
+    
+    func detachSecondView() {
+            presenter.secondView = nil
+        }
+    
+    
+    
 }

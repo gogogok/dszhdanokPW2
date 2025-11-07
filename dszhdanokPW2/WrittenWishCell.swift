@@ -41,11 +41,11 @@ final class WrittenWishCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         let wrap: UIView = UIView()
-        addSubview(wrap)
+        contentView.addSubview(wrap)
         wrap.backgroundColor = Constants.wrapColor
         wrap.layer.cornerRadius = Constants.wrapRadius
-        wrap.pinVertical(to: self, Constants.wrapOffsetV)
-        wrap.pinHorizontal(to: self, Constants.wrapOffsetH)
+        wrap.pinVertical(to: contentView, Constants.wrapOffsetV)
+        wrap.pinHorizontal(to: contentView, Constants.wrapOffsetH)
         wrap.addSubview(wishLabel)
         wishLabel.pin(to: wrap, Constants.wishLabelOffset)
     }

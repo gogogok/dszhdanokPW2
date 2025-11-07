@@ -12,6 +12,10 @@ final class TableConfiguration {
     private enum Constants {
         static let tableCornerRadius: CGFloat = 5
         static let tableOffset: CGFloat = 20
+        static let buttonTitle : String = "New wish"
+        
+        static let corner: CGFloat = 10
+        static let fontSize: CGFloat = 16
     }
     
     static func CreateTable() -> UITableView{
@@ -28,4 +32,6 @@ final class TableConfiguration {
         table.pin(to: view, Constants.tableOffset)
         table.dataSource = dataSource
     }
+    
 }
+

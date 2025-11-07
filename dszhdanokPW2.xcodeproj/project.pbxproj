@@ -14,6 +14,7 @@
 		F72EF9BD2EBD210600595FBC /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */; };
 		F72EF9BF2EBD260900595FBC /* TableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */; };
 		F72EF9C12EBD2DC000595FBC /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */; };
+		F72EF9C72EBD365D00595FBC /* AddWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9C62EBD365200595FBC /* AddWishCell.swift */; };
 		F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */; };
 		F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */; };
 		F73357E82E8050D2004EBAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73357E72E8050D2004EBAE6 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 		F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConfiguration.swift; sourceTree = "<group>"; };
 		F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
+		F72EF9C62EBD365200595FBC /* AddWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishCell.swift; sourceTree = "<group>"; };
 		F73357DB2E8050D2004EBAE6 /* dszhdanokPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dszhdanokPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F72EF9C62EBD365200595FBC /* AddWishCell.swift */,
 				F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */,
 				F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */,
 				F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */,
@@ -356,6 +359,7 @@
 				F789F62A2EBB95930034CCF9 /* ClickerModel.swift in Sources */,
 				F72EF9BF2EBD260900595FBC /* TableConfiguration.swift in Sources */,
 				F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */,
+				F72EF9C72EBD365D00595FBC /* AddWishCell.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
 				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
 				F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */,

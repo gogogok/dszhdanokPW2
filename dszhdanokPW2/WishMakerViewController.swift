@@ -11,25 +11,6 @@ final class WishMakerViewController : UIViewController {
     
     typealias Model = ClickerModel
     
-    private let randomButton : UIButton = ActionButtonsConfiguration.makeRandomButton()
-    private let hexButton : UIButton = ActionButtonsConfiguration.makeHexButton()
-    private let addWishButton: UIButton = WishButtonsConfiguration.makeAddWishButton()
-    
-    private var hedealidersButton = UIButton()
-    
-    private let titleLable = UILabel()
-    private let descriptionLabel = UILabel()
-    private let stack = UIStackView()
-    private let stackOfButtons = UIStackView()
-    
-    private var textField: UITextField?
-    private var button: UIButton?
-    private var closeButton: UIButton?
-    
-    private let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
-    private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
-    private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
-    
     // MARK: - Constants
     private enum Constants {
         static let backGroundName: String = "MyBackgroundColor"
@@ -65,6 +46,25 @@ final class WishMakerViewController : UIViewController {
 
     // MARK: - Fields
     private let interactor: ClickerBusinessLogic
+    
+    private let randomButton : UIButton = ActionButtonsConfiguration.makeRandomButton()
+    private let hexButton : UIButton = ActionButtonsConfiguration.makeHexButton()
+    private let addWishButton: UIButton = WishButtonsConfiguration.makeAddWishButton()
+    
+    private var hedealidersButton = UIButton()
+    
+    private let titleLable = UILabel()
+    private let descriptionLabel = UILabel()
+    private let stack = UIStackView()
+    private let stackOfButtons = UIStackView()
+    
+    private var textField: UITextField?
+    private var button: UIButton?
+    private var closeButton: UIButton?
+    
+    private let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
+    private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
+    private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
 
     // MARK: - LifeCycle
     init(
@@ -263,7 +263,9 @@ final class WishMakerViewController : UIViewController {
     }
     
     func displayWishStoringViewController(_ viewModel: Model.PressShowStoringViewController.ViewModel) {
-        present(WishStoringViewController(), animated: true)
+        let second = WishStoringViewController(interactor: interactor)
+            (interactor as? ClickerInteractor)?.attachSecondView(second)
+            present(second, animated: true)
     }
     
     
