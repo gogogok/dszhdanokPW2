@@ -14,7 +14,7 @@ final class ClickerPresenter: ClickerPresentationLogic {
     }
 
     weak var view: WishMakerViewController?
-    weak var secondView: ClickerSecondDisplayLogic?
+    weak var secondView: WishStoringViewController?
 
     // MARK: - PresentationLogic
     func presentStart(_ response: Model.Start.Response) {
@@ -54,5 +54,13 @@ final class ClickerPresenter: ClickerPresentationLogic {
             let vm = ClickerModel.PressAddNewWish.ViewModel(text: resp.text)
             self.secondView?.displayAddWishToArray(vm)
 
+    }
+    
+    func presentDeleteWish(_ resp: Model.PressDeleteWish.Response, view viewSecond: WishStoringViewController) {
+        viewSecond.displayDeleteWish(Model.PressDeleteWish.ViewModel(text: resp.text))
+    }
+    
+    func presentEditWish(_ resp: ClickerModel.PressEditWish.Response, view viewSecond: WishStoringViewController) {
+        viewSecond.displayEditedWish(Model.PressEditWish.ViewModel(text: resp.text))
     }
 }

@@ -21,11 +21,14 @@ protocol ClickerBusinessLogic{
     
     func loadAddWish(_ request: Model.PressAddNewWish.Request)
     
+    func loadDeleteWish(_ request: Model.PressDeleteWish.Request)
+    func loadEditWish(_ request: Model.PressEditWish.Request)
+    
 }
 
 protocol ClickerPresentationLogic {
     
-    var secondView: ClickerSecondDisplayLogic? { get set }
+    var secondView: WishStoringViewController? { get set }
     
     typealias Model = ClickerModel
     func presentStart(_ response: Model.Start.Response)
@@ -36,13 +39,9 @@ protocol ClickerPresentationLogic {
     func presentPressCloseRGB(_ response: Model.PressCloseButton.Response)
     func presentChangeSlider(_ response: Model.PressChangeSlider.Response, slider: CustomSlider)
     func presentWishStoring(_ response: Model.PressShowStoringViewController.Response)
+    
     func presentAddWish(_ response: Model.PressAddNewWish.Response)
+    func presentDeleteWish(_ response: Model.PressDeleteWish.Response, view: WishStoringViewController)
+    func presentEditWish(_ response: Model.PressEditWish.Response, view: WishStoringViewController)
     
 }
-
-protocol ClickerSecondDisplayLogic : AnyObject {
-    typealias Model = ClickerModel
-   
-    func displayAddWishToArray(_ vm: ClickerModel.PressAddNewWish.ViewModel)
-}
-

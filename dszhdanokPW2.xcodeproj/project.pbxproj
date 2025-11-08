@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F722433D2EBF685200A6B291 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F722433C2EBF684400A6B291 /* UIViewExtension.swift */; };
 		F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */; };
 		F72EF9B72EBBA3E800595FBC /* ClickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */; };
 		F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F722433C2EBF684400A6B291 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CkickerAssembly.swift; sourceTree = "<group>"; };
 		F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerInteractor.swift; sourceTree = "<group>"; };
 		F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerPresenter.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F722433C2EBF684400A6B291 /* UIViewExtension.swift */,
 				F72EF9C62EBD365200595FBC /* AddWishCell.swift */,
 				F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */,
 				F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */,
@@ -361,6 +364,7 @@
 				F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */,
 				F72EF9C72EBD365D00595FBC /* AddWishCell.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
+				F722433D2EBF685200A6B291 /* UIViewExtension.swift in Sources */,
 				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
 				F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */,
 				F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */,

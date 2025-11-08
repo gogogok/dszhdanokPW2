@@ -54,13 +54,23 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentAddWish(Model.PressAddNewWish.Response(text: req.text))
     }
     
-    func attachSecondView(_ view: ClickerSecondDisplayLogic) {
+    func loadDeleteWish(_ req: Model.PressDeleteWish.Request) {
+        presenter.presentDeleteWish(Model.PressDeleteWish.Response(text: req.text), view: presenter.secondView!)
+    }
+    
+    func loadEditWish(_ req: Model.PressEditWish.Request, ) {
+        presenter.presentEditWish(Model.PressEditWish.Response(text: req.text), view: presenter.secondView!)
+    }
+    
+    func attachSecondView(_ view: WishStoringViewController) {
             presenter.secondView = view
         }
     
     func detachSecondView() {
             presenter.secondView = nil
         }
+    
+    
     
     
     

@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class WishStoringViewController: UIViewController, ClickerSecondDisplayLogic
+final class WishStoringViewController: UIViewController
 {
-    
+    // MARK: - Fields
     typealias Model = ClickerModel
     
     private let interactor: ClickerBusinessLogic
@@ -19,6 +19,11 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
     private let defaults = UserDefaults.standard
     
     private weak var addCell: AddWishCell?
+    
+    private let table = TableConfiguration.CreateTable()
+    private var wishArray: [String] = ["I wish to add cells to the table"]
+    
+    // MARK: - Constants
     
     private enum Constants {
         static let numberOfSections : Int = 2
@@ -38,9 +43,7 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
     required init?(coder: NSCoder) {
         fatalError(Constants.fatalError)
     }
-    
-    private let table = TableConfiguration.CreateTable()
-    private var wishArray: [String] = ["I wish to add cells to the table"]
+
     
     
     override func viewDidLoad() {
@@ -50,7 +53,7 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
         table.register(WrittenWishCell.self, forCellReuseIdentifier: WrittenWishCell.reuseId)
         table.register(AddWishCell.self, forCellReuseIdentifier: AddWishCell.reuseId)
         //стереть у себя userdefaults по ключу, чтобы при перезапуске не было новых желаний
-        //UserDefaults.standard.removeObject(forKey: Constants.wishesKey)
+        UserDefaults.standard.removeObject(forKey: Constants.wishesKey)
     }
     
     // MARK: - Actions
@@ -62,7 +65,26 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
         guard !text.isEmpty else { return }
         
         self.interactor.loadAddWish(Model.PressAddNewWish.Request(text: text))
+        
+        cell.textView.text = ""
+        
     }
+    
+    @objc private func deleteWish(_ sender: UIButton) {
+        guard
+            let cell = sender.findSuperview(of: WrittenWishCell.self),
+            let indexPath = table.indexPath(for: cell)
+        else { return }
+        
+        let text = wishArray[indexPath.row]
+        self.interactor.loadDeleteWish(Model.PressDeleteWish.Request(text: text))
+    }
+    
+    @objc private func editWish() {
+        //по нажатию энер можно активировать событие, подписчик которого текстовое поле ввода
+    }
+    
+    
     
     // MARK: - func
     
@@ -73,6 +95,17 @@ final class WishStoringViewController: UIViewController, ClickerSecondDisplayLog
 
     func displayAddWishToArray(_ vm: Model.PressAddNewWish.ViewModel) {
         addCell?.addWish?(vm.text)
+    }
+    
+    func displayDeleteWish( _ vm: Model.PressDeleteWish.ViewModel) {
+        self.wishArray.remove(at: self.wishArray.firstIndex(of: vm.text)!)
+        defaults.set(wishArray, forKey: Constants.wishesKey)
+        table.reloadData()
+    }
+    
+    
+    func displayEditedWish(_ vm: Model.PressEditWish.ViewModel) {
+        
     }
 }
 
@@ -123,6 +156,9 @@ extension WishStoringViewController: UITableViewDataSource {
             )
             guard let wishCell = cell as? WrittenWishCell else { return cell }
             wishCell.configure(with: wishArray[indexPath.row])
+            wishCell.deleteButtonAddTarget(self, action: #selector(deleteWish(_:)))
+            wishCell.editButtonAddTarget(self, action: #selector(editWish))
+            
             return wishCell
             
         default :

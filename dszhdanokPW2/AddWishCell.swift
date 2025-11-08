@@ -38,6 +38,10 @@ final class AddWishCell: UITableViewCell {
         static let widthDiff: CGFloat = 15
         
         static let heightWrap: CGFloat = 140
+        
+        static let buttonWidth: CGFloat = 120
+        
+        static let borderWidth: CGFloat = 1
     }
     
     public var buttonToAddWish: UIButton = UIButton(type: .system)
@@ -67,7 +71,7 @@ final class AddWishCell: UITableViewCell {
         
         textView.backgroundColor = .white
         textView.isEditable = true
-        textView.layer.borderWidth = 1
+        textView.layer.borderWidth = Constants.borderWidth
         textView.layer.cornerRadius = Constants.corner
         textView.layer.borderColor = UIColor.systemGray4.cgColor
         textView.font = .systemFont(ofSize: Constants.fontSize)
@@ -85,7 +89,7 @@ final class AddWishCell: UITableViewCell {
         buttonToAddWish.pinTop(to: textView.bottomAnchor,  Constants.top)
         buttonToAddWish.pinRight(to: textView.trailingAnchor)
         buttonToAddWish.pinBottom(to: view.bottomAnchor, Constants.bottom)
-//        buttonToAddWish.changeHeight( Constants.buttonHeight)
+        buttonToAddWish.changeWidth(Constants.buttonWidth)
     }
     
     private func configureUI() {

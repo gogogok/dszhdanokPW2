@@ -63,4 +63,15 @@ enum ClickerModel {
         struct ViewModel { let text: String }
     }
     
+    enum PressDeleteWish {
+        struct Request { let text: String }
+        struct Response { let text: String }
+        struct ViewModel { let text: String }
+    }
+    
+    enum PressEditWish {
+        struct Request { let text: String }
+        struct Response { let text: String }
+        struct ViewModel { let text: String }
+    }
 }

@@ -20,7 +20,7 @@ final class TableConfiguration {
     
     static func CreateTable() -> UITableView{
         let table: UITableView = UITableView(frame: .zero)
-        table.backgroundColor = .red
+        table.backgroundColor = .systemIndigo
         table.separatorStyle = .none
         table.layer.cornerRadius = Constants.tableCornerRadius
         return table
