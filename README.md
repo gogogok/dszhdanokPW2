@@ -1,3 +1,5 @@
+Я забыла отметить изменение архитектуры как 3 ДЗ, извиняюсь очень((
+
 Ответы на вопросы PW2
 
 1) Question: What issues prevent us from using storyboards in real projects?
