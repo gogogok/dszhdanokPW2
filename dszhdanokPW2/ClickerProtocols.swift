@@ -24,6 +24,8 @@ protocol ClickerBusinessLogic{
     func loadDeleteWish(_ request: Model.PressDeleteWish.Request)
     func loadEditWish(_ request: Model.PressEditWish.Request)
     
+    func loadFinishEditWish(_ request: Model.PressEnterFinishEditWish.Request)
+    
 }
 
 protocol ClickerPresentationLogic {
@@ -43,5 +45,7 @@ protocol ClickerPresentationLogic {
     func presentAddWish(_ response: Model.PressAddNewWish.Response)
     func presentDeleteWish(_ response: Model.PressDeleteWish.Response, view: WishStoringViewController)
     func presentEditWish(_ response: Model.PressEditWish.Response, view: WishStoringViewController)
+    
+    func presentEditFinishWish(_ response: Model.PressEnterFinishEditWish.Response, view: WishStoringViewController)
     
 }

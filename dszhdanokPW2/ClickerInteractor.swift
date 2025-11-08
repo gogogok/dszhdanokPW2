@@ -58,8 +58,12 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentDeleteWish(Model.PressDeleteWish.Response(text: req.text), view: presenter.secondView!)
     }
     
-    func loadEditWish(_ req: Model.PressEditWish.Request, ) {
-        presenter.presentEditWish(Model.PressEditWish.Response(text: req.text), view: presenter.secondView!)
+    func loadEditWish(_ req: Model.PressEditWish.Request) {
+        presenter.presentEditWish(Model.PressEditWish.Response(cell: req.cell), view: presenter.secondView!)
+    }
+    
+    func loadFinishEditWish(_ req: Model.PressEnterFinishEditWish.Request) {
+        presenter.presentEditFinishWish(Model.PressEnterFinishEditWish.Response(cell: req.cell, index: req.index), view: presenter.secondView!)
     }
     
     func attachSecondView(_ view: WishStoringViewController) {

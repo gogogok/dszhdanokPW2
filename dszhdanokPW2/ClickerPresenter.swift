@@ -61,6 +61,10 @@ final class ClickerPresenter: ClickerPresentationLogic {
     }
     
     func presentEditWish(_ resp: ClickerModel.PressEditWish.Response, view viewSecond: WishStoringViewController) {
-        viewSecond.displayEditedWish(Model.PressEditWish.ViewModel(text: resp.text))
+        viewSecond.displayEditedWish(Model.PressEditWish.ViewModel(cell: resp.cell))
+    }
+    
+    func presentEditFinishWish(_ resp: Model.PressEnterFinishEditWish.Response, view viewSecond: WishStoringViewController) {
+        viewSecond.displayFinishEditingWish(Model.PressEnterFinishEditWish.ViewModel(cell: resp.cell, index: resp.index))
     }
 }

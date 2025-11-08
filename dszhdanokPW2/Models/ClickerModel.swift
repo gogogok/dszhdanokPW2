@@ -70,8 +70,23 @@ enum ClickerModel {
     }
     
     enum PressEditWish {
-        struct Request { let text: String }
-        struct Response { let text: String }
-        struct ViewModel { let text: String }
+        struct Request { let cell: WrittenWishCell}
+        struct Response { let cell: WrittenWishCell }
+        struct ViewModel {let cell: WrittenWishCell}
+    }
+    
+    enum PressEnterFinishEditWish {
+        struct Request {
+            let cell: WrittenWishCell
+            let index: IndexPath
+        }
+        struct Response {
+            let cell: WrittenWishCell
+            let index: IndexPath
+        }
+        struct ViewModel {
+            let cell: WrittenWishCell
+            let index: IndexPath
+        }
     }
 }

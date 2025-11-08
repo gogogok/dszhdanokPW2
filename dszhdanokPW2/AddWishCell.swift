@@ -10,6 +10,7 @@ import UIKit
 final class AddWishCell: UITableViewCell {
     
     static let reuseId: String = "AddWishCell"
+    
     var addWish: ((String) -> Void)?
     
     private enum Constants {

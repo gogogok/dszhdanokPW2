@@ -19,7 +19,7 @@ final class ActionButtonsConfiguration {
         
         static let stackNumberOfLines: Int = 0
         static let stackButtonLeft: CGFloat = 10
-        static let stackButtonRight: CGFloat = -10
+        static let stackButtonRight: CGFloat = 10
         
         static let stackButtonWidth: CGFloat = 100
         static let stackButtonHeight: CGFloat = 60

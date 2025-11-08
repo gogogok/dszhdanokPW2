@@ -75,13 +75,24 @@ final class WishStoringViewController: UIViewController
             let cell = sender.findSuperview(of: WrittenWishCell.self),
             let indexPath = table.indexPath(for: cell)
         else { return }
-        
         let text = wishArray[indexPath.row]
         self.interactor.loadDeleteWish(Model.PressDeleteWish.Request(text: text))
     }
     
-    @objc private func editWish() {
-        //по нажатию энер можно активировать событие, подписчик которого текстовое поле ввода
+    
+    @objc private func editWish(_ sender: UIButton) {
+        guard
+            let cell = sender.findSuperview(of: WrittenWishCell.self)
+        else { return }
+        self.interactor.loadEditWish(Model.PressEditWish.Request(cell: cell))
+    }
+    
+    @objc private func editFieldDidChange(_ sender: UITextField) {
+        guard
+            let cell = sender.findSuperview(of: WrittenWishCell.self),
+            let indexPath = table.indexPath(for: cell)
+        else { return }
+        self.interactor.loadFinishEditWish(Model.PressEnterFinishEditWish.Request(cell: cell, index: indexPath))
     }
     
     
@@ -98,15 +109,24 @@ final class WishStoringViewController: UIViewController
     }
     
     func displayDeleteWish( _ vm: Model.PressDeleteWish.ViewModel) {
-        self.wishArray.remove(at: self.wishArray.firstIndex(of: vm.text)!)
+        wishArray.remove(at: self.wishArray.firstIndex(of: vm.text)!)
         defaults.set(wishArray, forKey: Constants.wishesKey)
         table.reloadData()
     }
     
     
     func displayEditedWish(_ vm: Model.PressEditWish.ViewModel) {
-        
+        vm.cell.setEditingMode(enabled: true)
     }
+    
+    func displayFinishEditingWish(_ vm: Model.PressEnterFinishEditWish.ViewModel) {
+        vm.cell.setEditingMode(enabled: false)
+        let text = vm.cell.getTextFieldText()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? vm.cell.getTextLabelText()
+        wishArray[vm.index.row] = (text ?? vm.cell.getTextLabelText()) ?? ""
+        defaults.set(wishArray, forKey: Constants.wishesKey)
+        table.reloadData()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -157,7 +177,8 @@ extension WishStoringViewController: UITableViewDataSource {
             guard let wishCell = cell as? WrittenWishCell else { return cell }
             wishCell.configure(with: wishArray[indexPath.row])
             wishCell.deleteButtonAddTarget(self, action: #selector(deleteWish(_:)))
-            wishCell.editButtonAddTarget(self, action: #selector(editWish))
+            wishCell.editButtonAddTarget(self, action: #selector(editWish(_:)))
+            wishCell.editFieldAddTarget(self, action: #selector(editFieldDidChange(_:)))
             
             return wishCell
             

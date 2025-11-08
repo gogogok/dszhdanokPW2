@@ -37,6 +37,7 @@ final class WrittenWishCell: UITableViewCell {
     }
     
     private let wishLabel: UILabel = UILabel()
+    private let wishTextField = UITextField()
     private let deleteWishButton: UIButton = UIButton(type: .system)
     private let editWishButton: UIButton = UIButton(type: .system)
     
@@ -53,7 +54,18 @@ final class WrittenWishCell: UITableViewCell {
     
     func configure(with wish: String) {
         wishLabel.text = wish
+        wishTextField.text = wish
     }
+    
+    func setEditingMode(enabled: Bool) {
+           wishLabel.isHidden = enabled
+           wishTextField.isHidden = !enabled
+           if enabled {
+               wishTextField.becomeFirstResponder()
+           } else {
+               wishTextField.resignFirstResponder()
+           }
+       }
     
     private func configureUI() {
         
@@ -61,6 +73,9 @@ final class WrittenWishCell: UITableViewCell {
         wishLabel.layer.cornerRadius = Constants.labelRadius
         wishLabel.clipsToBounds = true
         wishLabel.textAlignment = .center
+        
+        wishTextField.isHidden = true
+        wishTextField.borderStyle = .roundedRect
         
         editWishButton.backgroundColor = .systemGray2
         editWishButton.tintColor = .black
@@ -89,6 +104,7 @@ final class WrittenWishCell: UITableViewCell {
         wrap.addSubview(wishLabel)
         wrap.addSubview(editWishButton)
         wrap.addSubview(deleteWishButton)
+        wrap.addSubview(wishTextField)
         
         editWishButton.pinLeft(to: wishLabel.trailingAnchor, Constants.editButtonLeft)
         editWishButton.pinVertical(to: wishLabel, Constants.buttonOffsetH)
@@ -102,6 +118,11 @@ final class WrittenWishCell: UITableViewCell {
         wishLabel.pinBottom(to: wrap.bottomAnchor, Constants.wishLabelOffset)
         wishLabel.numberOfLines = 0
         wishLabel.lineBreakMode = .byWordWrapping
+        
+        wishTextField.pinLeft(to: wrap, Constants.wishLabelOffset)
+        wishTextField.changeWidth(Constants.labelWidth)
+        wishTextField.pinTop(to: wrap.topAnchor, Constants.wishLabelOffset)
+        wishTextField.pinBottom(to: wrap.bottomAnchor, Constants.wishLabelOffset)
     }
     
     func deleteButtonAddTarget(_ target: Any?, action: Selector) {
@@ -110,6 +131,18 @@ final class WrittenWishCell: UITableViewCell {
     
     func editButtonAddTarget(_ target: Any?, action: Selector) {
         editWishButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func editFieldAddTarget(_ target: Any?, action: Selector) {
+        wishTextField.addTarget(target, action: action, for: .editingDidEndOnExit)
+    }
+    
+    func getTextFieldText() -> String? {
+        return wishTextField.text
+    }
+    
+    func getTextLabelText()  -> String? {
+        return wishLabel.text
     }
     
     
