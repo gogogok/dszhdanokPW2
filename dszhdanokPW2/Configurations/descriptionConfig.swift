@@ -9,6 +9,8 @@ import UIKit
 
 public class DescriptionConfiguration {
     
+    //MARK: - Constants
+    
     private enum Constants {
         static let descriptionFont: CGFloat = 20
         static let descriptionNumberOfLines = 0
@@ -17,6 +19,8 @@ public class DescriptionConfiguration {
         static let viewBottom: CGFloat = 20
         
     }
+    
+    //MARK: - Configure func
     
     static func configureDescription(descriptionLabel: UILabel, titleLable: UILabel, in view: UIView) {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -79,42 +79,13 @@ final class WishMakerViewController : UIViewController {
         fatalError(Constants.fatalError)
     }
 
+    //MARK: - view load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         interactor.loadStart(Model.Start.Request())
     }
-    
-    private func configureUI() {
-        view.backgroundColor = UIColor(named: Constants.backGroundName)
-        TitleConfiguration.configureTitle(titleLable : titleLable, in: view)
-        DescriptionConfiguration.configureDescription(descriptionLabel: descriptionLabel, titleLable: titleLable, in: view)
-        
-        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton, in: view)
-        
-        SliderConfiguration.configureSliders(stack: stack, in: view, sliderRed: sliderRed, sliderBlue: sliderBlue, sliderGreen: sliderGreen, wishButton: addWishButton)
-    
-        
-        hedealidersButton =  HideButtonConfiguration.configureButton(stack: stack, in: view)
-        
-        
-        ActionButtonsConfiguration.configureButton(description: descriptionLabel, stack: stackOfButtons, in: view, randomButton: randomButton, HEXButton: hexButton)
-        
-        view.addSubview(hedealidersButton)
-        
-        randomButton.addTarget(self, action: #selector(ActionButtonRandom), for: .touchUpInside)
-        hexButton.addTarget(self, action: #selector(ActionHEXButton), for: .touchUpInside)
-        hedealidersButton.addTarget(self, action: #selector(HideSlidersButton), for: .touchUpInside)
-        
-        sliderRed.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
-        sliderBlue.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
-        sliderGreen.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
-        
-        subscribeSliders()
-        
-        addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
-    }
-    
     
     // MARK: - Actions
     @objc
@@ -154,7 +125,39 @@ final class WishMakerViewController : UIViewController {
         interactor.loadWishStoring(Model.PressShowStoringViewController.Request())
     }
     
-    // MARK: - DisplayLogic
+    //MARK: - configure func
+    
+    private func configureUI() {
+        view.backgroundColor = UIColor(named: Constants.backGroundName)
+        TitleConfiguration.configureTitle(titleLable : titleLable, in: view)
+        DescriptionConfiguration.configureDescription(descriptionLabel: descriptionLabel, titleLable: titleLable, in: view)
+        
+        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton, in: view)
+        
+        SliderConfiguration.configureSliders(stack: stack, in: view, sliderRed: sliderRed, sliderBlue: sliderBlue, sliderGreen: sliderGreen, wishButton: addWishButton)
+    
+        
+        hedealidersButton =  HideButtonConfiguration.configureButton(stack: stack, in: view)
+        
+        
+        ActionButtonsConfiguration.configureButton(description: descriptionLabel, stack: stackOfButtons, in: view, randomButton: randomButton, HEXButton: hexButton)
+        
+        view.addSubview(hedealidersButton)
+        
+        randomButton.addTarget(self, action: #selector(ActionButtonRandom), for: .touchUpInside)
+        hexButton.addTarget(self, action: #selector(ActionHEXButton), for: .touchUpInside)
+        hedealidersButton.addTarget(self, action: #selector(HideSlidersButton), for: .touchUpInside)
+        
+        sliderRed.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        sliderBlue.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        sliderGreen.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        
+        subscribeSliders()
+        
+        addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
+    }
+    
+    // MARK: - DisplayLogic func
     func displayStart(_ viewModel: Model.Start.ViewModel) {
     
     }
@@ -268,6 +271,7 @@ final class WishMakerViewController : UIViewController {
             present(second, animated: true)
     }
     
+    //MARK: - func for displayChangesRGB
     
     private func isValidFormat(text: String) -> Bool {
         return text.range(of: Constants.pattern, options: .regularExpression) != nil

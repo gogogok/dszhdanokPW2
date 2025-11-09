@@ -19,10 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
+        
+        Persistence.shared.wipeAllWishes()
+        Persistence.shared.seedIfEmpty()
+        
         window.rootViewController = ClickerAssembly.build()
         window.makeKeyAndVisible()
-    }
 
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

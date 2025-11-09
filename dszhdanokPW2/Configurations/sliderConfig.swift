@@ -9,12 +9,16 @@ import UIKit
 
 class SliderConfiguration {
     
+    //MARK: - Constants
+    
     private enum Constants {
         static let stackRadius: CGFloat = 10
         static let buttonTop: CGFloat = 10
         static let stackLeading: CGFloat = 20
         static let viewBottom: CGFloat = 20
     }
+    
+    //MARK: - Configure func
     
     static func configureSliders(stack: UIStackView, in view: UIView,  sliderRed: CustomSlider, sliderBlue: CustomSlider, sliderGreen: CustomSlider, wishButton: UIButton) {
         stack.translatesAutoresizingMaskIntoConstraints = false

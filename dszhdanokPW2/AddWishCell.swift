@@ -9,10 +9,17 @@ import UIKit
 
 final class AddWishCell: UITableViewCell {
     
-    static let reuseId: String = "AddWishCell"
+    //MARK: - Fields
     
+    static let reuseId: String = "AddWishCell"
+    public var buttonToAddWish: UIButton = UIButton(type: .system)
+    public var textView: UITextView = UITextView()
+    
+    //MARK: - Сallback-property
     var addWish: ((String) -> Void)?
     
+    
+    //MARK: - Constants
     private enum Constants {
         static let wrapColor: UIColor = .white
         static let wrapRadius: CGFloat = 16
@@ -45,9 +52,6 @@ final class AddWishCell: UITableViewCell {
         static let borderWidth: CGFloat = 1
     }
     
-    public var buttonToAddWish: UIButton = UIButton(type: .system)
-    public var textView: UITextView = UITextView()
-    
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,9 +63,13 @@ final class AddWishCell: UITableViewCell {
         fatalError(Constants.error)
     }
     
+    
+    //MARK: - Add target for button
     func bindAddTarget(_ target: Any?, action: Selector) {
         buttonToAddWish.addTarget(target, action: action, for: .touchUpInside)
     }
+    
+    //MARK: - configure func
     
     private func configureWishGetText(in view: UIView) {
         buttonToAddWish.setTitle(Constants.buttonTitle, for: .normal)
@@ -105,11 +113,10 @@ final class AddWishCell: UITableViewCell {
         configureWishGetText(in: wrap)
     }
     
+    //MARK: - get properties func
+    
     public func getText() -> String? {
         return textView.text
     }
     
-    public func setText(_ text: String) {
-        textView.text = text
-    }
 }

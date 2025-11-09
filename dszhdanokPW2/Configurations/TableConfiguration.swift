@@ -9,6 +9,8 @@ import UIKit
 
 final class TableConfiguration {
     
+    //MARK: - Constants
+    
     private enum Constants {
         static let tableCornerRadius: CGFloat = 5
         static let tableOffset: CGFloat = 20
@@ -18,6 +20,8 @@ final class TableConfiguration {
         static let fontSize: CGFloat = 16
     }
     
+    //MARK: - create table func
+    
     static func CreateTable() -> UITableView{
         let table: UITableView = UITableView(frame: .zero)
         table.backgroundColor = .systemIndigo
@@ -25,6 +29,8 @@ final class TableConfiguration {
         table.layer.cornerRadius = Constants.tableCornerRadius
         return table
     }
+    
+    //MARK: - configure func
     
     static func ConfigureTable(table: UITableView, in view: UIView, dataSource: UITableViewDataSource) {
         

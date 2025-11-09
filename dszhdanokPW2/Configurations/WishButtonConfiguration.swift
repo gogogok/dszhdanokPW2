@@ -9,6 +9,8 @@ import UIKit
 
 final class WishButtonsConfiguration {
     
+    //MARK: - Constants
+    
     private enum Constants {
         static let buttonHeight: CGFloat = 50
         static let buttonText: String = "Add Wish"
@@ -16,6 +18,8 @@ final class WishButtonsConfiguration {
         static let buttonSide: CGFloat = 40
         static let buttonRadius: CGFloat = 10
     }
+    
+    //MARK: - create button func
     
     static func makeAddWishButton() -> UIButton {
         let addWishButton = UIButton(type: .system)
@@ -27,6 +31,7 @@ final class WishButtonsConfiguration {
         return addWishButton
     }
     
+    //MARK: - configure func
     
     public static func configureAddWishButton(addWishButton : UIButton, in  view: UIView) {
         view.addSubview(addWishButton)

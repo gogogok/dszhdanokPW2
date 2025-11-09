@@ -9,8 +9,15 @@ import UIKit
 
 final class WrittenWishCell: UITableViewCell {
     
-    static let reuseId: String = "WrittenWishCell"
+    //MARK: - Fields
     
+    static let reuseId: String = "WrittenWishCell"
+    private let wishLabel: UILabel = UILabel()
+    private let wishTextField = UITextField()
+    private let deleteWishButton: UIButton = UIButton(type: .system)
+    private let editWishButton: UIButton = UIButton(type: .system)
+    
+    //MARK: - Constants
     private enum Constants {
         static let wrapColor: UIColor = .white
         static let wrapRadius: CGFloat = 16
@@ -36,11 +43,6 @@ final class WrittenWishCell: UITableViewCell {
         
     }
     
-    private let wishLabel: UILabel = UILabel()
-    private let wishTextField = UITextField()
-    private let deleteWishButton: UIButton = UIButton(type: .system)
-    private let editWishButton: UIButton = UIButton(type: .system)
-    
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,20 +54,12 @@ final class WrittenWishCell: UITableViewCell {
         fatalError(Constants.error)
     }
     
+    //MARK: - configure func
+    
     func configure(with wish: String) {
         wishLabel.text = wish
         wishTextField.text = wish
     }
-    
-    func setEditingMode(enabled: Bool) {
-           wishLabel.isHidden = enabled
-           wishTextField.isHidden = !enabled
-           if enabled {
-               wishTextField.becomeFirstResponder()
-           } else {
-               wishTextField.resignFirstResponder()
-           }
-       }
     
     private func configureUI() {
         
@@ -81,7 +75,7 @@ final class WrittenWishCell: UITableViewCell {
         editWishButton.tintColor = .black
         editWishButton.layer.cornerRadius = Constants.buttonRadius
         editWishButton.setTitle(Constants.editButtonText, for: .normal)
-
+        
         editWishButton.changeWidth(Constants.buttonWidth)
         
         deleteWishButton.backgroundColor = .systemGray2
@@ -99,7 +93,7 @@ final class WrittenWishCell: UITableViewCell {
         wrap.layer.cornerRadius = Constants.wrapRadius
         wrap.pinVertical(to: contentView, Constants.wrapOffsetV)
         wrap.pinLeft(to: contentView, Constants.wrapOffsetH)
-        wrap.pinRight(to: contentView, Constants.wrapOffsetH) 
+        wrap.pinRight(to: contentView, Constants.wrapOffsetH)
         
         wrap.addSubview(wishLabel)
         wrap.addSubview(editWishButton)
@@ -125,6 +119,8 @@ final class WrittenWishCell: UITableViewCell {
         wishTextField.pinBottom(to: wrap.bottomAnchor, Constants.wishLabelOffset)
     }
     
+    //MARK: - Add target for buttons
+    
     func deleteButtonAddTarget(_ target: Any?, action: Selector) {
         deleteWishButton.addTarget(target, action: action, for: .touchUpInside)
     }
@@ -136,6 +132,20 @@ final class WrittenWishCell: UITableViewCell {
     func editFieldAddTarget(_ target: Any?, action: Selector) {
         wishTextField.addTarget(target, action: action, for: .editingDidEndOnExit)
     }
+    
+    //MARK: - editing mode
+    
+    func setEditingMode(enabled: Bool) {
+        wishLabel.isHidden = enabled
+        wishTextField.isHidden = !enabled
+        if enabled {
+            wishTextField.becomeFirstResponder()
+        } else {
+            wishTextField.resignFirstResponder()
+        }
+    }
+    
+    //MARK: - get properties func
     
     func getTextFieldText() -> String? {
         return wishTextField.text

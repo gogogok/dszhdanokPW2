@@ -8,11 +8,18 @@
 import UIKit
 
 public final class CustomSlider : UIView {
-    public var valueChanged: ((Double) -> Void)?
+    
+    //MARK: - Fields
     
     var slider = UISlider()
     var titleView = UILabel()
     public var currentValueLabel = UILabel()
+    
+    //MARK: - Сallback-property
+    
+    public var valueChanged: ((Double) -> Void)?
+    
+    //MARK: - Constants
     
     private enum Constants {
         static let titleViewTop: CGFloat = 20
@@ -24,7 +31,7 @@ public final class CustomSlider : UIView {
         static let fatalErrorText: String = "init(coder:) has not been implemented"
     }
     
-    
+    // MARK: - Lifecycle
     init(title: String, min: Double, max: Double) {
         super.init(frame: .zero)
         titleView.text = title
@@ -38,6 +45,8 @@ public final class CustomSlider : UIView {
     required init?(coder: NSCoder) {
         fatalError(Constants.fatalErrorText)
     }
+    
+    //MARK: - configure func
     
     private func configureUI() {
         backgroundColor = .white

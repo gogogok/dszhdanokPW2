@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F722433D2EBF685200A6B291 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F722433C2EBF684400A6B291 /* UIViewExtension.swift */; };
+		F72243402EC08B5C00A6B291 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F722433E2EC08B5C00A6B291 /* Model.xcdatamodeld */; };
+		F72243432EC08F5600A6B291 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72243422EC08F5400A6B291 /* Persistence.swift */; };
+		F72243452EC0907500A6B291 /* WishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72243442EC0907300A6B291 /* WishRepository.swift */; };
 		F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */; };
 		F72EF9B72EBBA3E800595FBC /* ClickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */; };
 		F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */; };
@@ -58,6 +61,9 @@
 
 /* Begin PBXFileReference section */
 		F722433C2EBF684400A6B291 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		F722433F2EC08B5C00A6B291 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F72243422EC08F5400A6B291 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		F72243442EC0907300A6B291 /* WishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishRepository.swift; sourceTree = "<group>"; };
 		F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CkickerAssembly.swift; sourceTree = "<group>"; };
 		F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerInteractor.swift; sourceTree = "<group>"; };
 		F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerPresenter.swift; sourceTree = "<group>"; };
@@ -118,18 +124,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F72EF9B32EBB994C00595FBC /* Entities */ = {
+		F72243412EC08F4900A6B291 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
-				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
+				F72243442EC0907300A6B291 /* WishRepository.swift */,
+				F72243422EC08F5400A6B291 /* Persistence.swift */,
 			);
-			path = Entities;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		F73357D22E8050D2004EBAE6 = {
 			isa = PBXGroup;
 			children = (
+				F722433E2EC08B5C00A6B291 /* Model.xcdatamodeld */,
 				F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */,
 				F73357F42E8050D3004EBAE6 /* dszhdanokPW2Tests */,
 				F73357FE2E8050D3004EBAE6 /* dszhdanokPW2UITests */,
@@ -150,15 +157,17 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F72243412EC08F4900A6B291 /* CoreData */,
 				F722433C2EBF684400A6B291 /* UIViewExtension.swift */,
 				F72EF9C62EBD365200595FBC /* AddWishCell.swift */,
 				F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */,
 				F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */,
 				F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */,
 				F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */,
-				F72EF9B32EBB994C00595FBC /* Entities */,
+				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
+				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
 				F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */,
-				F789F6282EBB95610034CCF9 /* Models */,
+				F789F6292EBB95810034CCF9 /* ClickerModel.swift */,
 				F73358242E82B523004EBAE6 /* Configurations */,
 				F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */,
 				F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */,
@@ -204,14 +213,6 @@
 				F73358372E82D24A004EBAE6 /* textFieldConfiguration.swift */,
 			);
 			path = Configurations;
-			sourceTree = "<group>";
-		};
-		F789F6282EBB95610034CCF9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F789F6292EBB95810034CCF9 /* ClickerModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,8 +354,11 @@
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
 				F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */,
+				F72243432EC08F5600A6B291 /* Persistence.swift in Sources */,
+				F72243452EC0907500A6B291 /* WishRepository.swift in Sources */,
 				F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */,
 				F73358152E8089BA004EBAE6 /* CustomSlider.swift in Sources */,
+				F72243402EC08B5C00A6B291 /* Model.xcdatamodeld in Sources */,
 				F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */,
 				F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */,
 				F72EF9BD2EBD210600595FBC /* WishStoringViewController.swift in Sources */,
@@ -707,6 +711,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F722433E2EC08B5C00A6B291 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F722433F2EC08B5C00A6B291 /* Model.xcdatamodel */,
+			);
+			currentVersion = F722433F2EC08B5C00A6B291 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F73357D32E8050D2004EBAE6 /* Project object */;
 }

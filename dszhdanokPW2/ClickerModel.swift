@@ -9,11 +9,15 @@ import UIKit
 
 enum ClickerModel {
     
+    //MARK: - start model
+    
     enum Start {
         struct Request { }
         struct Response { }
         struct ViewModel { }
     }
+    
+    //MARK: - first view models
     
     enum PressHideSlider {
         struct Request { }
@@ -57,6 +61,8 @@ enum ClickerModel {
         struct ViewModel { }
     }
     
+    //MARK: - second view models
+    
     enum PressAddNewWish {
         struct Request { let text: String }
         struct Response { let text: String }
@@ -89,4 +95,19 @@ enum ClickerModel {
             let index: IndexPath
         }
     }
+    
+    enum ShareWishes {
+        struct Request {}
+        struct Response { let fileURL: URL }
+        struct ViewModel { let fileURL: URL }
+    }
+    
+    //MARK: - fetch models
+    
+    enum FetchAll {
+            struct Request {}
+            struct Response { let wishes: [Wish] }
+            struct ViewModel { let texts: [String] }
+        }
+    
 }

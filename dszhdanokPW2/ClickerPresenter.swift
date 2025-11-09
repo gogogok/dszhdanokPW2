@@ -8,15 +8,13 @@
 import UIKit
 
 final class ClickerPresenter: ClickerPresentationLogic {
-    // MARK: - Constants
-    private enum Constants {
-
-    }
-
+   
+    // MARK: - views
+    
     weak var view: WishMakerViewController?
     weak var secondView: WishStoringViewController?
-
-    // MARK: - PresentationLogic
+    
+    // MARK: - first view PresentationLogic
     func presentStart(_ response: Model.Start.Response) {
         view?.displayStart(Model.Start.ViewModel())
     }
@@ -49,22 +47,32 @@ final class ClickerPresenter: ClickerPresentationLogic {
         view?.displayWishStoringViewController(Model.PressShowStoringViewController.ViewModel())
     }
     
+    // MARK: - second view PresentationLogic
     
     func presentAddWish(_ resp: ClickerModel.PressAddNewWish.Response) {
-            let vm = ClickerModel.PressAddNewWish.ViewModel(text: resp.text)
-            self.secondView?.displayAddWishToArray(vm)
-
+        let vm = ClickerModel.PressAddNewWish.ViewModel(text: resp.text)
+        self.secondView?.displayAddWishToArray(vm)
+        
     }
     
-    func presentDeleteWish(_ resp: Model.PressDeleteWish.Response, view viewSecond: WishStoringViewController) {
-        viewSecond.displayDeleteWish(Model.PressDeleteWish.ViewModel(text: resp.text))
+    func presentDeleteWish(_ resp: Model.PressDeleteWish.Response) {
+        self.secondView?.displayDeleteWish(Model.PressDeleteWish.ViewModel(text: resp.text))
     }
     
-    func presentEditWish(_ resp: ClickerModel.PressEditWish.Response, view viewSecond: WishStoringViewController) {
-        viewSecond.displayEditedWish(Model.PressEditWish.ViewModel(cell: resp.cell))
+    func presentEditWish(_ resp: ClickerModel.PressEditWish.Response) {
+        self.secondView?.displayEditedWish(Model.PressEditWish.ViewModel(cell: resp.cell))
     }
     
-    func presentEditFinishWish(_ resp: Model.PressEnterFinishEditWish.Response, view viewSecond: WishStoringViewController) {
-        viewSecond.displayFinishEditingWish(Model.PressEnterFinishEditWish.ViewModel(cell: resp.cell, index: resp.index))
+    func presentEditFinishWish(_ resp: Model.PressEnterFinishEditWish.Response) {
+        self.secondView?.displayFinishEditingWish(Model.PressEnterFinishEditWish.ViewModel(cell: resp.cell, index: resp.index))
+    }
+    
+    func presentFetched(_ resp: ClickerModel.FetchAll.Response) {
+        let texts = resp.wishes.map { $0.text ?? "" }
+        self.secondView?.displayFetched(Model.FetchAll.ViewModel(texts: texts))
+    }
+    
+    func presentShare(_ resp: Model.ShareWishes.Response) {
+        self.secondView?.shareWishes(Model.ShareWishes.ViewModel(fileURL: resp.fileURL))
     }
 }

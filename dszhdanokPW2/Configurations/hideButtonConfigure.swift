@@ -9,12 +9,15 @@ import UIKit
 
 class HideButtonConfiguration {
     
+    //MARK: - Constants
     private enum Constants {
         static let buttomHideTop: CGFloat = -50
         static let buttomHideWidth: CGFloat = 250
         
         static let hideButtonText: String = "Hide sliders"
     }
+    
+    //MARK: - Configure func
     
     static func configureButton(stack: UIStackView, in view: UIView) -> UIButton{
         let buttonOffOnSliders = CustomButton(title: Constants.hideButtonText, stack: stack, mainView: view)

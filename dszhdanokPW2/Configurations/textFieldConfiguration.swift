@@ -9,8 +9,11 @@ import UIKit
 
 class TextFieldConfiguration {
     
+    //MARK: - Field
+    
     private static var mainView: UIView?
     
+    //MARK: - Constants
     private enum Constants {
         static let textFieldText: String = "Enter HEX code"
         static let textApply: String = "Apply"
@@ -38,8 +41,10 @@ class TextFieldConfiguration {
         static let buttonHiddenAlfaOff: CGFloat = 1
     }
     
+    //MARK: - Configure func
+    
     static func configureText(in view: UIView, stack: UIStackView, textField: UITextField?, button: UIButton?, closeButton: UIButton?) {
-                     
+        
         guard let textField, let button, let closeButton else { return }
         
         view.addSubview(textField)
@@ -70,14 +75,9 @@ class TextFieldConfiguration {
         closeButton.pinLeft(to: button.trailingAnchor, Constants.closeButtonLeft)
         closeButton.pinRight(to: view.trailingAnchor, Constants.closeButtonRight)
         closeButton.changeWidth(Constants.buttonValueWidth)
-    
         
-         
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
-
-
-        
     }
     
 }

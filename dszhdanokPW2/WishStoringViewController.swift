@@ -16,12 +16,25 @@ final class WishStoringViewController: UIViewController
     
     private var inputText: String = ""
     
-    private let defaults = UserDefaults.standard
-    
     private weak var addCell: AddWishCell?
     
     private let table = TableConfiguration.CreateTable()
     private var wishArray: [String] = ["I wish to add cells to the table"]
+    
+    private lazy var shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Share", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = Constants.buttonRadius
+        button.layer.masksToBounds = true
+        button.titleLabel?.font = UIFont.systemFont(ofSize: Constants.fontSize, weight: .bold)
+        button.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    //я не убирала UserDefaults., а только закомментила, так что можно проверить
+    //private let defaults = UserDefaults.standard
     
     // MARK: - Constants
     
@@ -29,9 +42,15 @@ final class WishStoringViewController: UIViewController
         static let numberOfSections : Int = 2
         static let fatalError: String = "init(coder:) has not been implemented"
         static let wishesKey = "userWishes"
+        
+        static let buttonOffset: CGFloat = 30
+        static let buttonWidth: CGFloat = 100
+        static let buttonRadius: CGFloat = 12
+        static let fontSize: CGFloat = 16
     }
     
     // MARK: - LifeCycle
+    
     init(
         interactor: ClickerBusinessLogic
     ) {
@@ -44,16 +63,18 @@ final class WishStoringViewController: UIViewController
         fatalError(Constants.fatalError)
     }
 
-    
+    // MARK: - view load
     
     override func viewDidLoad() {
         view.backgroundColor = .blue
-        wishArray = defaults.array(forKey: Constants.wishesKey) as? [String] ?? wishArray
+        //wishArray = defaults.array(forKey: Constants.wishesKey) as? [String] ?? wishArray
         configureUI()
         table.register(WrittenWishCell.self, forCellReuseIdentifier: WrittenWishCell.reuseId)
         table.register(AddWishCell.self, forCellReuseIdentifier: AddWishCell.reuseId)
         //стереть у себя userdefaults по ключу, чтобы при перезапуске не было новых желаний
-        UserDefaults.standard.removeObject(forKey: Constants.wishesKey)
+        //UserDefaults.standard.removeObject(forKey: Constants.wishesKey)
+        
+        interactor.loadFetchAll(Model.FetchAll.Request())
     }
     
     // MARK: - Actions
@@ -95,22 +116,31 @@ final class WishStoringViewController: UIViewController
         self.interactor.loadFinishEditWish(Model.PressEnterFinishEditWish.Request(cell: cell, index: indexPath))
     }
     
-    
-    
-    // MARK: - func
-    
-    private func configureUI() {
-        TableConfiguration.ConfigureTable(table: table, in: view, dataSource: self)
+    @objc private func shareTapped() {
+        interactor.loadShareWishes(Model.ShareWishes.Request())
     }
     
-
+    
+    //MARK: - configure func
+    
+    private func configureUI() {
+        view.addSubview(shareButton)
+        shareButton.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Constants.buttonOffset)
+        shareButton.pinHorizontal(to: view, Constants.buttonOffset)
+        TableConfiguration.ConfigureTable(table: table, in: view, dataSource: self)
+        table.contentInset.top = 60
+        view.bringSubviewToFront(shareButton)
+    }
+    
+    //MARK: - DisplayLogic func
+    
     func displayAddWishToArray(_ vm: Model.PressAddNewWish.ViewModel) {
         addCell?.addWish?(vm.text)
     }
     
     func displayDeleteWish( _ vm: Model.PressDeleteWish.ViewModel) {
         wishArray.remove(at: self.wishArray.firstIndex(of: vm.text)!)
-        defaults.set(wishArray, forKey: Constants.wishesKey)
+        //defaults.set(wishArray, forKey: Constants.wishesKey)
         table.reloadData()
     }
     
@@ -123,8 +153,18 @@ final class WishStoringViewController: UIViewController
         vm.cell.setEditingMode(enabled: false)
         let text = vm.cell.getTextFieldText()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? vm.cell.getTextLabelText()
         wishArray[vm.index.row] = (text ?? vm.cell.getTextLabelText()) ?? ""
-        defaults.set(wishArray, forKey: Constants.wishesKey)
+        //defaults.set(wishArray, forKey: Constants.wishesKey)
         table.reloadData()
+    }
+    
+    func displayFetched(_ vm: Model.FetchAll.ViewModel) {
+           wishArray = vm.texts
+           table.reloadData()
+       }
+    
+    func shareWishes(_ vm: Model.ShareWishes.ViewModel) {
+        let av = UIActivityViewController(activityItems: [vm.fileURL], applicationActivities: nil)
+        present(av, animated: true)
     }
     
 }
@@ -163,7 +203,7 @@ extension WishStoringViewController: UITableViewDataSource {
             wishCell.addWish = { [weak self] wish in
                 guard let self = self else { return }
                 self.wishArray.append(wish)
-                defaults.set(wishArray, forKey: Constants.wishesKey)
+                //defaults.set(wishArray, forKey: Constants.wishesKey)
                 table.reloadData()
             }
             
