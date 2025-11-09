@@ -9,14 +9,18 @@ import UIKit
 
 public class DescriptionConfiguration {
     
+    //MARK: - Constants
+    
     private enum Constants {
         static let descriptionFont: CGFloat = 20
         static let descriptionNumberOfLines = 0
         static let descriptionLeading: CGFloat = 20
-        static let descriptionLabelText: String = "This app will make your dreams come true. Now you will see it with your own eyes\n My first wish is to change the background of this app!\n\n (Just use the sliders!!)\n Also you have another three options to\n change color:"
+        static let descriptionLabelText: String = "This app will make your dreams come true. Now you will see it with your own eyes\n My first wish is to change the background of this app!\n\n (Just use the sliders!!)\n Also you have another two options to\n change color:"
         static let viewBottom: CGFloat = 20
         
     }
+    
+    //MARK: - Configure func
     
     static func configureDescription(descriptionLabel: UILabel, titleLable: UILabel, in view: UIView) {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

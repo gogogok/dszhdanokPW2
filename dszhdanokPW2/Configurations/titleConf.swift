@@ -9,10 +9,14 @@ import UIKit
 
 public class TitleConfiguration {
     
+    //MARK: - Constants
+    
     private enum Constants {
         static let titleLabelName: String = "WishMaker"
         static let fontSizeTitle: CGFloat = 32
     }
+    
+    //MARK: - configure func
     
     static func configureTitle(titleLable: UILabel, in view: UIView) {
         titleLable.translatesAutoresizingMaskIntoConstraints = false

@@ -11,24 +11,6 @@ final class WishMakerViewController : UIViewController {
     
     typealias Model = ClickerModel
     
-    private let randomButton = ActionButtonsConfiguration.makeRandomButton()
-    private let hexButton = ActionButtonsConfiguration.makeHexButton()
-    private var hedealidersButton = UIButton()
-    
-    private let titleLable = UILabel()
-    private let descriptionLabel = UILabel()
-    private let stack = UIStackView()
-    private let stackOfButtons = UIStackView()
-    
-    private var textField: UITextField?
-    private var button: UIButton?
-    private var closeButton: UIButton?
-    
-    private let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
-    private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
-    private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
-    
-    
     // MARK: - Constants
     private enum Constants {
         static let backGroundName: String = "MyBackgroundColor"
@@ -64,6 +46,25 @@ final class WishMakerViewController : UIViewController {
 
     // MARK: - Fields
     private let interactor: ClickerBusinessLogic
+    
+    private let randomButton : UIButton = ActionButtonsConfiguration.makeRandomButton()
+    private let hexButton : UIButton = ActionButtonsConfiguration.makeHexButton()
+    private let addWishButton: UIButton = WishButtonsConfiguration.makeAddWishButton()
+    
+    private var hedealidersButton = UIButton()
+    
+    private let titleLable = UILabel()
+    private let descriptionLabel = UILabel()
+    private let stack = UIStackView()
+    private let stackOfButtons = UIStackView()
+    
+    private var textField: UITextField?
+    private var button: UIButton?
+    private var closeButton: UIButton?
+    
+    private let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
+    private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
+    private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
 
     // MARK: - LifeCycle
     init(
@@ -78,17 +79,64 @@ final class WishMakerViewController : UIViewController {
         fatalError(Constants.fatalError)
     }
 
+    //MARK: - view load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         interactor.loadStart(Model.Start.Request())
     }
     
+    // MARK: - Actions
+    @objc
+    private func ActionButtonRandom() {
+        interactor.loadPressChangeRandom(Model.PressChangeRandomColor.Request())
+    }
+    
+    @objc
+    private func ActionHEXButton() {
+        interactor.loadPressChangeRGB(Model.PressChooseRGB.Request())
+    }
+    
+    @objc
+    private func HideSlidersButton() {
+        interactor.loadPressHideSlider(Model.PressHideSlider.Request())
+    }
+    
+    @objc
+    private func sliderValueChanged() {
+        interactor.loadChangeSlider(Model.PressChangeSlider.Request(), slider: sliderRed)
+        interactor.loadChangeSlider(Model.PressChangeSlider.Request(), slider: sliderGreen)
+        interactor.loadChangeSlider(Model.PressChangeSlider.Request(), slider: sliderBlue)
+    }
+    
+    @objc
+    func ButtonTapped() {
+        interactor.loadPressChangeApply(Model.PressChangeApplyColor.Request())
+    }
+    
+    @objc
+    func HideView() {
+        interactor.loadPressCloseRGB(Model.PressCloseButton.Request())
+    }
+    
+    @objc
+    private func addWishButtonPressed() {
+        interactor.loadWishStoring(Model.PressShowStoringViewController.Request())
+    }
+    
+    //MARK: - configure func
+    
     private func configureUI() {
         view.backgroundColor = UIColor(named: Constants.backGroundName)
         TitleConfiguration.configureTitle(titleLable : titleLable, in: view)
         DescriptionConfiguration.configureDescription(descriptionLabel: descriptionLabel, titleLable: titleLable, in: view)
-        SliderConfiguration.configureSliders(stack: stack, in: view, sliderRed: sliderRed, sliderBlue: sliderBlue, sliderGreen: sliderGreen)
+        
+        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton, in: view)
+        
+        SliderConfiguration.configureSliders(stack: stack, in: view, sliderRed: sliderRed, sliderBlue: sliderBlue, sliderGreen: sliderGreen, wishButton: addWishButton)
+    
+        
         hedealidersButton =  HideButtonConfiguration.configureButton(stack: stack, in: view)
         
         
@@ -105,37 +153,11 @@ final class WishMakerViewController : UIViewController {
         sliderGreen.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
         
         subscribeSliders()
+        
+        addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
     }
     
-    
-    // MARK: - Actions
-    @objc private func ActionButtonRandom() {
-        interactor.loadPressChangeRandom(Model.PressChangeRandomColor.Request())
-    }
-    
-    @objc private func ActionHEXButton() {
-        interactor.loadPressChangeRGB(Model.PressChooseRGB.Request())
-    }
-    
-    @objc private func HideSlidersButton() {
-        interactor.loadPressHideSlider(Model.PressHideSlider.Request())
-    }
-    
-    @objc private func sliderValueChanged() {
-        interactor.loadChangeSlider(Model.PressChangeSlider.Request(), slider: sliderRed)
-        interactor.loadChangeSlider(Model.PressChangeSlider.Request(), slider: sliderGreen)
-        interactor.loadChangeSlider(Model.PressChangeSlider.Request(), slider: sliderBlue)
-    }
-    
-    @objc func ButtonTapped() {
-        interactor.loadPressChangeApply(Model.PressChangeApplyColor.Request())
-    }
-    
-    @objc func HideView() {
-        interactor.loadPressCloseRGB(Model.PressCloseButton.Request())
-    }
-    
-    // MARK: - DisplayLogic
+    // MARK: - DisplayLogic func
     func displayStart(_ viewModel: Model.Start.ViewModel) {
     
     }
@@ -243,6 +265,13 @@ final class WishMakerViewController : UIViewController {
         self.closeButton = nil
     }
     
+    func displayWishStoringViewController(_ viewModel: Model.PressShowStoringViewController.ViewModel) {
+        let second = WishStoringViewController(interactor: interactor)
+            (interactor as? ClickerInteractor)?.attachSecondView(second)
+            present(second, animated: true)
+    }
+    
+    //MARK: - func for displayChangesRGB
     
     private func isValidFormat(text: String) -> Bool {
         return text.range(of: Constants.pattern, options: .regularExpression) != nil

@@ -8,7 +8,7 @@
 import UIKit
 
 final class ActionButtonsConfiguration {
-    
+    //MARK: - Constants
     enum Constants {
         static let stackOfButtonsTop: CGFloat = 20
         
@@ -19,7 +19,7 @@ final class ActionButtonsConfiguration {
         
         static let stackNumberOfLines: Int = 0
         static let stackButtonLeft: CGFloat = 10
-        static let stackButtonRight: CGFloat = -10
+        static let stackButtonRight: CGFloat = 10
         
         static let stackButtonWidth: CGFloat = 100
         static let stackButtonHeight: CGFloat = 60
@@ -28,6 +28,7 @@ final class ActionButtonsConfiguration {
         static let stackRadius: CGFloat = 10
     }
     
+    //MARK: -  Create buttons
     
     static func makeRandomButton() -> UIButton {
         let button = UIButton(type: .system)
@@ -49,10 +50,9 @@ final class ActionButtonsConfiguration {
         return button
     }
     
+    //MARK: - Configure func
+    
     static func configureButton(description: UILabel, stack:  UIStackView ,in view: UIView, randomButton : UIButton, HEXButton: UIButton) {
-        
-        var mainView = view
-        var stackST = stack
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal

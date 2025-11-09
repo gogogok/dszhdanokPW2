@@ -7,10 +7,14 @@
 
 import UIKit
 
+//MARK: - Constants
+
 private enum Constants {
     static let formatForHex: String = "#%06X"
     static let alphaFullValue: CGFloat = 1.0
 }
+
+//MARK: - Color Changing Methods
 
 public func getRandomHEXColor() -> UIColor {
     var result = UIColor()
