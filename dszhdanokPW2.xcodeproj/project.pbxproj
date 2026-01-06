@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,6 @@
 		F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */; };
 		F72EF9BD2EBD210600595FBC /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */; };
 		F72EF9BF2EBD260900595FBC /* TableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */; };
-		F72EF9C12EBD2DC000595FBC /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */; };
-		F72EF9C72EBD365D00595FBC /* AddWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EF9C62EBD365200595FBC /* AddWishCell.swift */; };
 		F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */; };
 		F73357E12E8050D2004EBAE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */; };
 		F73357E82E8050D2004EBAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73357E72E8050D2004EBAE6 /* Assets.xcassets */; };
@@ -70,8 +68,6 @@
 		F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishButtonConfiguration.swift; sourceTree = "<group>"; };
 		F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 		F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConfiguration.swift; sourceTree = "<group>"; };
-		F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
-		F72EF9C62EBD365200595FBC /* AddWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishCell.swift; sourceTree = "<group>"; };
 		F73357DB2E8050D2004EBAE6 /* dszhdanokPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dszhdanokPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73357DE2E8050D2004EBAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73357E02E8050D2004EBAE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +94,10 @@
 		F789F6292EBB95810034CCF9 /* ClickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerModel.swift; sourceTree = "<group>"; };
 		F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F7981BA22F0C94F300A18C90 /* Cells */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Cells; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F73357D82E8050D2004EBAE6 /* Frameworks */ = {
@@ -157,15 +157,13 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F7981BA22F0C94F300A18C90 /* Cells */,
+				F7981BA12F0C94DA00A18C90 /* CustomObjects */,
 				F72243412EC08F4900A6B291 /* CoreData */,
 				F722433C2EBF684400A6B291 /* UIViewExtension.swift */,
-				F72EF9C62EBD365200595FBC /* AddWishCell.swift */,
-				F72EF9C02EBD2DB600595FBC /* WrittenWishCell.swift */,
 				F72EF9B82EBBC40300595FBC /* ClickerPresenter.swift */,
 				F72EF9B62EBBA3E000595FBC /* ClickerInteractor.swift */,
 				F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */,
-				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
-				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
 				F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */,
 				F789F6292EBB95810034CCF9 /* ClickerModel.swift */,
 				F73358242E82B523004EBAE6 /* Configurations */,
@@ -215,6 +213,15 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		F7981BA12F0C94DA00A18C90 /* CustomObjects */ = {
+			isa = PBXGroup;
+			children = (
+				F73358142E8089BA004EBAE6 /* CustomSlider.swift */,
+				F733581E2E81FE33004EBAE6 /* CustomButton.swift */,
+			);
+			path = CustomObjects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +236,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F7981BA22F0C94F300A18C90 /* Cells */,
 			);
 			name = dszhdanokPW2;
 			productName = dszhdanokPW2;
@@ -349,7 +359,6 @@
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
 				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
 				F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */,
-				F72EF9C12EBD2DC000595FBC /* WrittenWishCell.swift in Sources */,
 				F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */,
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
@@ -366,7 +375,6 @@
 				F789F62A2EBB95930034CCF9 /* ClickerModel.swift in Sources */,
 				F72EF9BF2EBD260900595FBC /* TableConfiguration.swift in Sources */,
 				F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */,
-				F72EF9C72EBD365D00595FBC /* AddWishCell.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
 				F722433D2EBF685200A6B291 /* UIViewExtension.swift in Sources */,
 				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
