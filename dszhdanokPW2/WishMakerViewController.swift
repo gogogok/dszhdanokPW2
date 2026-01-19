@@ -40,7 +40,8 @@ final class WishMakerViewController : UIViewController {
         
         static let pattern = "^#[0-9A-Fa-f]{0,6}$"
         
-        
+        static let spacing: CGFloat = 20
+        static let actionStackBottom: CGFloat = 20
         
     }
 
@@ -50,6 +51,7 @@ final class WishMakerViewController : UIViewController {
     private let randomButton : UIButton = ActionButtonsConfiguration.makeRandomButton()
     private let hexButton : UIButton = ActionButtonsConfiguration.makeHexButton()
     private let addWishButton: UIButton = WishButtonsConfiguration.makeAddWishButton()
+    private let scheduleWishesButton: UIButton = ScheduleMissionsConfiguration.makeScheduleWishButton()
     
     private var hedealidersButton = UIButton()
     
@@ -65,6 +67,9 @@ final class WishMakerViewController : UIViewController {
     private let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
     private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
     private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
+    
+    private var actionStack = UIStackView()
+
 
     // MARK: - LifeCycle
     init(
@@ -129,16 +134,17 @@ final class WishMakerViewController : UIViewController {
     
     private func configureUI() {
         view.backgroundColor = UIColor(named: Constants.backGroundName)
+        
+        
         TitleConfiguration.configureTitle(titleLable : titleLable, in: view)
         DescriptionConfiguration.configureDescription(descriptionLabel: descriptionLabel, titleLable: titleLable, in: view)
         
-        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton, in: view)
         
+        configureActionStack()
         SliderConfiguration.configureSliders(stack: stack, in: view, sliderRed: sliderRed, sliderBlue: sliderBlue, sliderGreen: sliderGreen, wishButton: addWishButton)
     
         
         hedealidersButton =  HideButtonConfiguration.configureButton(stack: stack, in: view)
-        
         
         ActionButtonsConfiguration.configureButton(description: descriptionLabel, stack: stackOfButtons, in: view, randomButton: randomButton, HEXButton: hexButton)
         
@@ -155,6 +161,19 @@ final class WishMakerViewController : UIViewController {
         subscribeSliders()
         
         addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
+    }
+    
+    private func configureActionStack() {
+        actionStack.axis = .vertical
+        view.addSubview(actionStack)
+        actionStack.spacing = Constants.spacing
+        for button in [addWishButton, scheduleWishesButton] {
+            actionStack.addArrangedSubview(button)
+        }
+        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton)
+        ScheduleMissionsConfiguration.configureScheduleWishButton(scheduleWishButton: scheduleWishesButton)
+        actionStack.pinBottom(to: view, Constants.actionStackBottom)
+        actionStack.pinHorizontal(to: view, Constants.stackLeading)
     }
     
     // MARK: - DisplayLogic func
@@ -276,7 +295,6 @@ final class WishMakerViewController : UIViewController {
     private func isValidFormat(text: String) -> Bool {
         return text.range(of: Constants.pattern, options: .regularExpression) != nil
     }
-    
     
 }
 
