@@ -184,7 +184,9 @@ final class WishMakerViewController : UIViewController {
     func displayPressRandom(_ viewModel: Model.PressChangeRandomColor.ViewModel) {
         randomButton.isEnabled = false
         UIView.animate(withDuration: Constants.durationOfAnimation) {
-            self.view.backgroundColor = getRandomColor()
+            let color = getRandomColor()
+            self.view.backgroundColor = color
+            self.changeButtonColor(with: color)
         } completion: { _ in
             self.randomButton.isEnabled = true
         }
@@ -236,15 +238,21 @@ final class WishMakerViewController : UIViewController {
     
     func subscribeSliders() {
         sliderRed.valueChanged = { [weak view] value in
-            view?.backgroundColor =  updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            let color = updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            view?.backgroundColor =  color
+            self.changeButtonColor(with: color)
         }
         
         sliderBlue.valueChanged = { [weak view] value in
-            view?.backgroundColor =  updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            let color = updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            view?.backgroundColor =  color
+            self.changeButtonColor(with: color)
         }
         
         sliderGreen.valueChanged = { [weak view] value in
-            view?.backgroundColor =  updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            let color = updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            view?.backgroundColor =  color
+            self.changeButtonColor(with: color)
         }
     }
     
@@ -260,6 +268,7 @@ final class WishMakerViewController : UIViewController {
         }
         guard let color = UIColor(hex: text) else { return}
         view?.backgroundColor = color
+        changeButtonColor(with: color)
         interactor.loadPressCloseRGB(Model.PressCloseButton.Request())
     }
     
@@ -294,6 +303,17 @@ final class WishMakerViewController : UIViewController {
     
     private func isValidFormat(text: String) -> Bool {
         return text.range(of: Constants.pattern, options: .regularExpression) != nil
+    }
+    
+    private func changeButtonColor(with color: UIColor) {
+        randomButton.setTitleColor(color, for: .normal)
+        hexButton.setTitleColor(color, for: .normal)
+        addWishButton.setTitleColor(color, for: .normal)
+        scheduleWishesButton.setTitleColor(color, for: .normal)
+        hedealidersButton.setTitleColor(color, for: .normal)
+        button?.setTitleColor(color, for: .normal)
+        closeButton?.setTitleColor(color, for: .normal)
+    
     }
     
 }
