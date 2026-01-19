@@ -1,5 +1,5 @@
 //
-//  WishCalendarViewController 2.swift
+//  WishCalendarViewController.swift
 //  dszhdanokPW2
 //
 //  Created by Дарья Жданок on 19.01.26.
@@ -37,7 +37,11 @@ final class WishCalendarViewController: UIViewController {
         collectionView.contentInset = Constants.contentInset
         
         /* Temporary line */
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(
+            WishEventCell.self,
+            forCellWithReuseIdentifier: WishEventCell.reuseIdentifier
+        )
+
         view.addSubview(collectionView)
         collectionView.pinHorizontal(to: view)
         collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
@@ -54,12 +58,25 @@ extension WishCalendarViewController: UICollectionViewDataSource {
     ) -> Int {
         return 10
     }
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        return cell
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WishEventCell.reuseIdentifier,
+            for: indexPath
+        )
+
+        guard let wishCell = cell as? WishEventCell else { return cell }
+
+        wishCell.configure(with: WishEventModel(
+            title: "Test",
+            description: "Test description",
+            startDate: "2026-01-19",
+            endDate: "2026-01-20"
+        ))
+
+        return wishCell
     }
 }
 
@@ -71,7 +88,7 @@ extension WishCalendarViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
 // Adjust cell size as needed
-        return CGSize(width: collectionView.bounds.width - 10, height: 100)
+        return CGSize(width: collectionView.bounds.width - 10, height: 140)
     }
     
     func collectionView(
