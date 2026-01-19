@@ -31,7 +31,7 @@ final class WishMakerViewController : UIViewController {
         static let green: String = "Green"
         static let blue: String = "Blue"
         static let stackRadius: CGFloat = 10
-        static let stackBottom: CGFloat = 250
+        static let stackBottom: CGFloat = 200
         static let stackLeading: CGFloat = 20
         static let viewBottom: CGFloat = 20
         
@@ -40,7 +40,7 @@ final class WishMakerViewController : UIViewController {
         
         static let pattern = "^#[0-9A-Fa-f]{0,6}$"
         
-        static let spacing: CGFloat = 20
+        static let spacing: CGFloat = 10
         static let actionStackBottom: CGFloat = 20
         
     }
@@ -130,6 +130,12 @@ final class WishMakerViewController : UIViewController {
         interactor.loadWishStoring(Model.PressShowStoringViewController.Request())
     }
     
+    @objc
+    private func scheduleWishesButtonPressed() {
+        let vc = WishCalendarViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //MARK: - configure func
     
     private func configureUI() {
@@ -161,6 +167,7 @@ final class WishMakerViewController : UIViewController {
         subscribeSliders()
         
         addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
+        scheduleWishesButton.addTarget(self, action: #selector(scheduleWishesButtonPressed), for: .touchUpInside)
     }
     
     private func configureActionStack() {

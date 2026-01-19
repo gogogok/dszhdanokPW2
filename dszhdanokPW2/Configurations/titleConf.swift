@@ -14,6 +14,7 @@ public class TitleConfiguration {
     private enum Constants {
         static let titleLabelName: String = "WishMaker"
         static let fontSizeTitle: CGFloat = 32
+        static let topUp: CGFloat = 55
     }
     
     //MARK: - configure func
@@ -25,7 +26,7 @@ public class TitleConfiguration {
         titleLable.textColor = getRandomHEXColor()
         
         view.addSubview(titleLable)
-        titleLable.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        titleLable.pinTop(to: view.topAnchor, Constants.topUp)
         titleLable.pinCenterX(to: view.centerXAnchor)
     }
 }

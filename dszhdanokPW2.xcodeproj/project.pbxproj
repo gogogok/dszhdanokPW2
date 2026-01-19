@@ -39,6 +39,7 @@
 		F789F62A2EBB95930034CCF9 /* ClickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F789F6292EBB95810034CCF9 /* ClickerModel.swift */; };
 		F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */; };
 		F7981BA82F1DA9F600A18C90 /* ScheduleMissionsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BA72F1DA9CC00A18C90 /* ScheduleMissionsConfiguration.swift */; };
+		F7981BAC2F1DB64500A18C90 /* WishCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BAB2F1DB64500A18C90 /* WishCalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		F789F6292EBB95810034CCF9 /* ClickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerModel.swift; sourceTree = "<group>"; };
 		F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerProtocols.swift; sourceTree = "<group>"; };
 		F7981BA72F1DA9CC00A18C90 /* ScheduleMissionsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMissionsConfiguration.swift; sourceTree = "<group>"; };
+		F7981BAB2F1DB64500A18C90 /* WishCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -174,6 +176,7 @@
 				F73357E72E8050D2004EBAE6 /* Assets.xcassets */,
 				F73357E92E8050D2004EBAE6 /* LaunchScreen.storyboard */,
 				F73357EC2E8050D2004EBAE6 /* Info.plist */,
+				F7981BAB2F1DB64500A18C90 /* WishCalendarViewController.swift */,
 				F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */,
 				F733580E2E805372004EBAE6 /* WishMakerViewController.swift */,
 				F73358102E805E50004EBAE6 /* UIColor_random_extension.swift */,
@@ -367,6 +370,7 @@
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
 				F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */,
 				F7981BA82F1DA9F600A18C90 /* ScheduleMissionsConfiguration.swift in Sources */,
+				F7981BAC2F1DB64500A18C90 /* WishCalendarViewController.swift in Sources */,
 				F72243432EC08F5600A6B291 /* Persistence.swift in Sources */,
 				F72243452EC0907500A6B291 /* WishRepository.swift in Sources */,
 				F73357DF2E8050D2004EBAE6 /* AppDelegate.swift in Sources */,
