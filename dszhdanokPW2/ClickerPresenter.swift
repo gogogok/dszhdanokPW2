@@ -13,6 +13,7 @@ final class ClickerPresenter: ClickerPresentationLogic {
     
     weak var view: WishMakerViewController?
     weak var secondView: WishStoringViewController?
+    weak var thirdView: WishEventCreationView?
     
     // MARK: - first view PresentationLogic
     func presentStart(_ response: Model.Start.Response) {
@@ -47,6 +48,10 @@ final class ClickerPresenter: ClickerPresentationLogic {
         view?.displayWishStoringViewController(Model.PressShowStoringViewController.ViewModel())
     }
     
+    func presentWishCalendarWindow(_ resp: Model.PressShowCalendarViewController.Response) {
+        view?.displayWishCalendarController(Model.PressShowCalendarViewController.ViewModel())
+    }
+    
     // MARK: - second view PresentationLogic
     
     func presentAddWish(_ resp: ClickerModel.PressAddNewWish.Response) {
@@ -75,4 +80,13 @@ final class ClickerPresenter: ClickerPresentationLogic {
     func presentShare(_ resp: Model.ShareWishes.Response) {
         self.secondView?.shareWishes(Model.ShareWishes.ViewModel(fileURL: resp.fileURL))
     }
+    
+    // MARK: - third view PresentationLogic
+    
+    func presentAddEvent(_ resp: ClickerModel.AddEventToCalendar.Response) {
+        self.thirdView?.addNewEvent(ClickerModel.AddEventToCalendar.ViewModel())
+        
+    }
+    
+
 }

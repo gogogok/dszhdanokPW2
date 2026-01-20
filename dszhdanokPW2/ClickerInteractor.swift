@@ -12,8 +12,10 @@ final class ClickerInteractor: ClickerBusinessLogic {
     private var presenter: ClickerPresentationLogic
     
     private let worker = WishWorker()
+    private let eventWorker = EventWorker()
     
     private var wishes: [Wish] = []
+    private var events: [Event] = []
     
     // MARK: - Lifecycle
     init(presenter: ClickerPresentationLogic) {
@@ -51,6 +53,10 @@ final class ClickerInteractor: ClickerBusinessLogic {
     
     func loadWishStoring(_ request: Model.PressShowStoringViewController.Request) {
         presenter.presentWishStoring(Model.PressShowStoringViewController.Response())
+    }
+    
+    func loadWishCalendarWindow(_ request: Model.PressShowCalendarViewController.Request) {
+        presenter.presentWishCalendarWindow(Model.PressShowCalendarViewController.Response())
     }
     
     // MARK: - second view BusinessLogic
@@ -101,13 +107,29 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentShare(Model.ShareWishes.Response(fileURL: url))
     }
     
-    //MARK: - set second view
+    // MARK: - third view BusinessLogic
+    
+    func loadAddEvent(_ req: ClickerModel.AddEventToCalendar.Request) {
+        let w = eventWorker.add(event: req.event)
+        events.append(w)
+        presenter.presentAddEvent(ClickerModel.AddEventToCalendar.Response())
+    }
+    
+    //MARK: - set views
     
     func attachSecondView(_ view: WishStoringViewController) {
         presenter.secondView = view
     }
     
     func detachSecondView() {
+        presenter.secondView = nil
+    }
+    
+    func attachThirdView(_ view: WishEventCreationView) {
+        presenter.thirdView = view
+    }
+    
+    func detachThirdView() {
         presenter.secondView = nil
     }
     

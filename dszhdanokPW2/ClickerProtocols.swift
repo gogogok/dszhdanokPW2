@@ -29,11 +29,16 @@ protocol ClickerBusinessLogic{
     func loadFetchAll(_ req: ClickerModel.FetchAll.Request)
     func loadShareWishes(_ req: ClickerModel.ShareWishes.Request)
     
+    func loadWishCalendarWindow(_ request: ClickerModel.PressShowCalendarViewController.Request)
+    
+    func loadAddEvent(_ request: ClickerModel.AddEventToCalendar.Request)
+    
 }
 
 protocol ClickerPresentationLogic {
     
     var secondView: WishStoringViewController? { get set }
+    var thirdView: WishEventCreationView? {get set}
     
     typealias Model = ClickerModel
     func presentStart(_ response: Model.Start.Response)
@@ -54,4 +59,7 @@ protocol ClickerPresentationLogic {
     func presentFetched(_ resp: ClickerModel.FetchAll.Response)
     func presentShare(_ resp: ClickerModel.ShareWishes.Response)
     
+    func presentWishCalendarWindow(_ resp: ClickerModel.PressShowCalendarViewController.Response)
+    
+    func presentAddEvent(_ request: ClickerModel.AddEventToCalendar.Response)
 }

@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
+        Persistence.shared.wipeAllEvents()
         Persistence.shared.wipeAllWishes()
         Persistence.shared.seedIfEmpty()
 

@@ -132,8 +132,7 @@ final class WishMakerViewController : UIViewController {
     
     @objc
     private func scheduleWishesButtonPressed() {
-        let vc = WishCalendarViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        interactor.loadWishCalendarWindow(Model.PressShowCalendarViewController.Request())
     }
     
     //MARK: - configure func
@@ -304,6 +303,11 @@ final class WishMakerViewController : UIViewController {
         let second = WishStoringViewController(interactor: interactor)
             (interactor as? ClickerInteractor)?.attachSecondView(second)
             present(second, animated: true)
+    }
+    
+    func displayWishCalendarController(_ viewModel: Model.PressShowCalendarViewController.ViewModel) {
+        let vc = WishCalendarViewController(interactor: interactor)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - func for displayChangesRGB

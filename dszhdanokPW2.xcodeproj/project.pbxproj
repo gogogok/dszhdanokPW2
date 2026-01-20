@@ -43,7 +43,11 @@
 		F7981BB82F1E262C00A18C90 /* AddWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BB42F1E262C00A18C90 /* AddWishCell.swift */; };
 		F7981BBA2F1E262C00A18C90 /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BB62F1E262C00A18C90 /* WrittenWishCell.swift */; };
 		F7981BBB2F1E26B100A18C90 /* WishEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BB52F1E262C00A18C90 /* WishEventCell.swift */; };
-		F7981BBC2F1E26BC00A18C90 /* WishEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BB12F1E24ED00A18C90 /* WishEventModel.swift */; };
+		F7981BBE2F1FCBEF00A18C90 /* WishEventCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BBD2F1FCBE900A18C90 /* WishEventCreationView.swift */; };
+		F7981BC02F1FDE6300A18C90 /* NewEventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BBF2F1FDE5600A18C90 /* NewEventConfiguration.swift */; };
+		F7981BC22F2007CC00A18C90 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BC12F2007B600A18C90 /* EventRepository.swift */; };
+		F7981BC72F2010C400A18C90 /* WishEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BC62F2010C400A18C90 /* WishEventModel.swift */; };
+		F7981BC92F2014B800A18C90 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BC82F2014B700A18C90 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		F722433C2EBF684400A6B291 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		F722433F2EC08B5C00A6B291 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F722433F2EC08B5C00A6B291 /* Model.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F72243422EC08F5400A6B291 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F72243442EC0907300A6B291 /* WishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishRepository.swift; sourceTree = "<group>"; };
 		F72EF9B42EBB9D2500595FBC /* CkickerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CkickerAssembly.swift; sourceTree = "<group>"; };
@@ -101,10 +105,14 @@
 		F789F62B2EBB96570034CCF9 /* ClickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerProtocols.swift; sourceTree = "<group>"; };
 		F7981BA72F1DA9CC00A18C90 /* ScheduleMissionsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMissionsConfiguration.swift; sourceTree = "<group>"; };
 		F7981BAB2F1DB64500A18C90 /* WishCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCalendarViewController.swift; sourceTree = "<group>"; };
-		F7981BB12F1E24ED00A18C90 /* WishEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventModel.swift; sourceTree = "<group>"; };
 		F7981BB42F1E262C00A18C90 /* AddWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishCell.swift; sourceTree = "<group>"; };
 		F7981BB52F1E262C00A18C90 /* WishEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCell.swift; sourceTree = "<group>"; };
 		F7981BB62F1E262C00A18C90 /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
+		F7981BBD2F1FCBE900A18C90 /* WishEventCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCreationView.swift; sourceTree = "<group>"; };
+		F7981BBF2F1FDE5600A18C90 /* NewEventConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventConfiguration.swift; sourceTree = "<group>"; };
+		F7981BC12F2007B600A18C90 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
+		F7981BC62F2010C400A18C90 /* WishEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventModel.swift; sourceTree = "<group>"; };
+		F7981BC82F2014B700A18C90 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +143,7 @@
 		F72243412EC08F4900A6B291 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F7981BC12F2007B600A18C90 /* EventRepository.swift */,
 				F72243442EC0907300A6B291 /* WishRepository.swift */,
 				F72243422EC08F5400A6B291 /* Persistence.swift */,
 			);
@@ -165,7 +174,8 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
-				F7981BB12F1E24ED00A18C90 /* WishEventModel.swift */,
+				F7981BC82F2014B700A18C90 /* Notifications.swift */,
+				F7981BC62F2010C400A18C90 /* WishEventModel.swift */,
 				F7981BB72F1E262C00A18C90 /* Cells */,
 				F7981BA12F0C94DA00A18C90 /* CustomObjects */,
 				F72243412EC08F4900A6B291 /* CoreData */,
@@ -181,6 +191,7 @@
 				F73357E72E8050D2004EBAE6 /* Assets.xcassets */,
 				F73357E92E8050D2004EBAE6 /* LaunchScreen.storyboard */,
 				F73357EC2E8050D2004EBAE6 /* Info.plist */,
+				F7981BBD2F1FCBE900A18C90 /* WishEventCreationView.swift */,
 				F7981BAB2F1DB64500A18C90 /* WishCalendarViewController.swift */,
 				F72EF9BC2EBD20F400595FBC /* WishStoringViewController.swift */,
 				F733580E2E805372004EBAE6 /* WishMakerViewController.swift */,
@@ -211,6 +222,7 @@
 		F73358242E82B523004EBAE6 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				F7981BBF2F1FDE5600A18C90 /* NewEventConfiguration.swift */,
 				F7981BA72F1DA9CC00A18C90 /* ScheduleMissionsConfiguration.swift */,
 				F72EF9BE2EBD25F700595FBC /* TableConfiguration.swift */,
 				F72EF9BA2EBCE91100595FBC /* WishButtonConfiguration.swift */,
@@ -377,6 +389,8 @@
 				F73358172E809D9C004EBAE6 /* colorChangindMethods.swift in Sources */,
 				F73358282E82B641004EBAE6 /* descriptionConfig.swift in Sources */,
 				F72EF9BB2EBCE92400595FBC /* WishButtonConfiguration.swift in Sources */,
+				F7981BC22F2007CC00A18C90 /* EventRepository.swift in Sources */,
+				F7981BC02F1FDE6300A18C90 /* NewEventConfiguration.swift in Sources */,
 				F73358382E82D24A004EBAE6 /* textFieldConfiguration.swift in Sources */,
 				F73358262E82B537004EBAE6 /* titleConf.swift in Sources */,
 				F7981BB82F1E262C00A18C90 /* AddWishCell.swift in Sources */,
@@ -394,15 +408,17 @@
 				F733582C2E82B931004EBAE6 /* hideButtonConfigure.swift in Sources */,
 				F72EF9BD2EBD210600595FBC /* WishStoringViewController.swift in Sources */,
 				F73358112E805E50004EBAE6 /* UIColor_random_extension.swift in Sources */,
+				F7981BBE2F1FCBEF00A18C90 /* WishEventCreationView.swift in Sources */,
 				F789F62A2EBB95930034CCF9 /* ClickerModel.swift in Sources */,
 				F7981BBB2F1E26B100A18C90 /* WishEventCell.swift in Sources */,
 				F72EF9BF2EBD260900595FBC /* TableConfiguration.swift in Sources */,
 				F789F62C2EBB965E0034CCF9 /* ClickerProtocols.swift in Sources */,
 				F733580F2E805372004EBAE6 /* WishMakerViewController.swift in Sources */,
+				F7981BC72F2010C400A18C90 /* WishEventModel.swift in Sources */,
+				F7981BC92F2014B800A18C90 /* Notifications.swift in Sources */,
 				F722433D2EBF685200A6B291 /* UIViewExtension.swift in Sources */,
 				F733582A2E82B70D004EBAE6 /* sliderConfig.swift in Sources */,
 				F733582E2E82BD85004EBAE6 /* actionButtonsConfigure.swift in Sources */,
-				F7981BBC2F1E26BC00A18C90 /* WishEventModel.swift in Sources */,
 				F72EF9B92EBBC40B00595FBC /* ClickerPresenter.swift in Sources */,
 				F73358132E80679E004EBAE6 /* UIView+.swift in Sources */,
 			);
