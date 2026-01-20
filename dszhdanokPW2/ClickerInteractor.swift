@@ -10,6 +10,7 @@ import UIKit
 final class ClickerInteractor: ClickerBusinessLogic {
     // MARK: - Fields
     private var presenter: ClickerPresentationLogic
+    private let calendarManager: CalendarManaging
     
     private let worker = WishWorker()
     private let eventWorker = EventWorker()
@@ -18,8 +19,12 @@ final class ClickerInteractor: ClickerBusinessLogic {
     private var events: [Event] = []
     
     // MARK: - Lifecycle
-    init(presenter: ClickerPresentationLogic) {
+    init(
+        presenter: ClickerPresentationLogic,
+        calendarManager: CalendarManaging = CalendarManager()
+    ) {
         self.presenter = presenter
+        self.calendarManager = calendarManager
     }
     
     // MARK: - first view BusinessLogic
@@ -82,12 +87,12 @@ final class ClickerInteractor: ClickerBusinessLogic {
         let row = req.index.row
         guard wishes.indices.contains(row) else { return }
         let wish = wishes[row]
-
+        
         let newText = (req.cell.getTextFieldText() ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let finalText = newText.isEmpty ? (req.cell.getTextLabelText() ?? "") : newText
-
+        
         worker.update(wish, newText: finalText)
-
+        
         wishes[row].text = finalText
         
         
@@ -112,6 +117,8 @@ final class ClickerInteractor: ClickerBusinessLogic {
     func loadAddEvent(_ req: ClickerModel.AddEventToCalendar.Request) {
         let w = eventWorker.add(event: req.event)
         events.append(w)
+        let ev = ClickerModel.CalendarEventModel(title: req.event.title, startDate: req.event.startDate, endDate: req.event.endDate, note: req.event.description)
+        calendarManager.create(eventModel: ev)
         presenter.presentAddEvent(ClickerModel.AddEventToCalendar.Response())
     }
     

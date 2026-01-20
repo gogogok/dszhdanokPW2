@@ -63,3 +63,7 @@ protocol ClickerPresentationLogic {
     
     func presentAddEvent(_ request: ClickerModel.AddEventToCalendar.Response)
 }
+
+protocol CalendarManaging {
+    func create(eventModel: ClickerModel.CalendarEventModel) -> Bool
+}

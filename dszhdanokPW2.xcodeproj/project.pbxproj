@@ -48,6 +48,7 @@
 		F7981BC22F2007CC00A18C90 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BC12F2007B600A18C90 /* EventRepository.swift */; };
 		F7981BC72F2010C400A18C90 /* WishEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BC62F2010C400A18C90 /* WishEventModel.swift */; };
 		F7981BC92F2014B800A18C90 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BC82F2014B700A18C90 /* Notifications.swift */; };
+		F7981BCB2F2020E800A18C90 /*  CalendarEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981BCA2F2020E200A18C90 /*  CalendarEventManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		F7981BC12F2007B600A18C90 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		F7981BC62F2010C400A18C90 /* WishEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventModel.swift; sourceTree = "<group>"; };
 		F7981BC82F2014B700A18C90 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		F7981BCA2F2020E200A18C90 /*  CalendarEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CalendarEventManager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		F73357DD2E8050D2004EBAE6 /* dszhdanokPW2 */ = {
 			isa = PBXGroup;
 			children = (
+				F7981BCA2F2020E200A18C90 /*  CalendarEventManager.swift */,
 				F7981BC82F2014B700A18C90 /* Notifications.swift */,
 				F7981BC62F2010C400A18C90 /* WishEventModel.swift */,
 				F7981BB72F1E262C00A18C90 /* Cells */,
@@ -397,6 +400,7 @@
 				F7981BBA2F1E262C00A18C90 /* WrittenWishCell.swift in Sources */,
 				F733581F2E81FE33004EBAE6 /* CustomButton.swift in Sources */,
 				F72EF9B52EBB9D3400595FBC /* CkickerAssembly.swift in Sources */,
+				F7981BCB2F2020E800A18C90 /*  CalendarEventManager.swift in Sources */,
 				F7981BA82F1DA9F600A18C90 /* ScheduleMissionsConfiguration.swift in Sources */,
 				F7981BAC2F1DB64500A18C90 /* WishCalendarViewController.swift in Sources */,
 				F72243432EC08F5600A6B291 /* Persistence.swift in Sources */,
@@ -597,6 +601,7 @@
 				DEVELOPMENT_TEAM = 8TKRB5649V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dszhdanokPW2/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "О БОЖЕ ЭТО ЧТО ИВЕНТ??";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -625,6 +630,7 @@
 				DEVELOPMENT_TEAM = 8TKRB5649V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dszhdanokPW2/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "О БОЖЕ ЭТО ЧТО ИВЕНТ??";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -128,9 +128,16 @@ enum ClickerModel {
     //MARK: - fetch models
     
     enum FetchAll {
-            struct Request {}
-            struct Response { let wishes: [Wish] }
-            struct ViewModel { let texts: [String] }
-        }
+        struct Request {}
+        struct Response { let wishes: [Wish] }
+        struct ViewModel { let texts: [String] }
+    }
     
+    //MARK: - for calendar
+    struct CalendarEventModel {
+        var title: String
+        var startDate: Date
+        var endDate: Date
+        var note: String?
+    }
 }
