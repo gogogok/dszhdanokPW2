@@ -10,14 +10,21 @@ import UIKit
 final class ClickerInteractor: ClickerBusinessLogic {
     // MARK: - Fields
     private var presenter: ClickerPresentationLogic
+    private let calendarManager: CalendarManaging
     
     private let worker = WishWorker()
+    private let eventWorker = EventWorker()
     
     private var wishes: [Wish] = []
+    private var events: [Event] = []
     
     // MARK: - Lifecycle
-    init(presenter: ClickerPresentationLogic) {
+    init(
+        presenter: ClickerPresentationLogic,
+        calendarManager: CalendarManaging = CalendarManager()
+    ) {
         self.presenter = presenter
+        self.calendarManager = calendarManager
     }
     
     // MARK: - first view BusinessLogic
@@ -53,6 +60,10 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentWishStoring(Model.PressShowStoringViewController.Response())
     }
     
+    func loadWishCalendarWindow(_ request: Model.PressShowCalendarViewController.Request) {
+        presenter.presentWishCalendarWindow(Model.PressShowCalendarViewController.Response())
+    }
+    
     // MARK: - second view BusinessLogic
     
     func loadAddWish(_ req: Model.PressAddNewWish.Request) {
@@ -76,12 +87,12 @@ final class ClickerInteractor: ClickerBusinessLogic {
         let row = req.index.row
         guard wishes.indices.contains(row) else { return }
         let wish = wishes[row]
-
+        
         let newText = (req.cell.getTextFieldText() ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let finalText = newText.isEmpty ? (req.cell.getTextLabelText() ?? "") : newText
-
+        
         worker.update(wish, newText: finalText)
-
+        
         wishes[row].text = finalText
         
         
@@ -94,6 +105,12 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentFetched(Model.FetchAll.Response(wishes: fetched))
     }
     
+    func loadFetchAllForCalendar(_ req: ClickerModel.FetchAll.Request) {
+        let fetched = worker.fetchAll()
+        self.wishes = fetched
+        presenter.presentFetchedForCalendar(Model.FetchAll.Response(wishes: fetched))
+    }
+    
     func loadShareWishes(_ req: ClickerModel.ShareWishes.Request) {
         Persistence.shared.container.viewContext.refreshAllObjects()
         
@@ -101,7 +118,17 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentShare(Model.ShareWishes.Response(fileURL: url))
     }
     
-    //MARK: - set second view
+    // MARK: - third view BusinessLogic
+    
+    func loadAddEvent(_ req: ClickerModel.AddEventToCalendar.Request) {
+        let w = eventWorker.add(event: req.event)
+        events.append(w)
+        let ev = ClickerModel.CalendarEventModel(title: req.event.title, startDate: req.event.startDate, endDate: req.event.endDate, note: req.event.description)
+        calendarManager.create(eventModel: ev)
+        presenter.presentAddEvent(ClickerModel.AddEventToCalendar.Response())
+    }
+    
+    //MARK: - set views
     
     func attachSecondView(_ view: WishStoringViewController) {
         presenter.secondView = view
@@ -109,6 +136,22 @@ final class ClickerInteractor: ClickerBusinessLogic {
     
     func detachSecondView() {
         presenter.secondView = nil
+    }
+    
+    func attachThirdView(_ view: WishEventCreationView) {
+        presenter.thirdView = view
+    }
+    
+    func detachThirdView() {
+        presenter.thirdView = nil
+    }
+    
+    func attachFourthView(_ view: WishCalendarViewController) {
+        presenter.fourthView = view
+    }
+    
+    func detachFourthView() {
+        presenter.fourthView = nil
     }
     
 }

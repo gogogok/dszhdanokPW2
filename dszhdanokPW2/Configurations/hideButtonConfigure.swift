@@ -11,7 +11,7 @@ class HideButtonConfiguration {
     
     //MARK: - Constants
     private enum Constants {
-        static let buttomHideTop: CGFloat = -50
+        static let buttomHideTop: CGFloat = -40
         static let buttomHideWidth: CGFloat = 250
         
         static let hideButtonText: String = "Hide sliders"

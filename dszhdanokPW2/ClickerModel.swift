@@ -61,6 +61,12 @@ enum ClickerModel {
         struct ViewModel { }
     }
     
+    enum PressShowCalendarViewController {
+        struct Request { }
+        struct Response { }
+        struct ViewModel { }
+    }
+    
     //MARK: - second view models
     
     enum PressAddNewWish {
@@ -102,12 +108,36 @@ enum ClickerModel {
         struct ViewModel { let fileURL: URL }
     }
     
+    //MARK: - calendar view models
+    
+    enum AddEventToCalendar {
+        struct Request {
+            let event: WishEventModel
+        }
+        struct Response {  }
+        struct ViewModel { }
+    }
+    
+    enum PressChooseWishForEvent {
+        struct Request {}
+        struct Response {}
+        struct ViewModel {}
+    }
+    
+    
     //MARK: - fetch models
     
     enum FetchAll {
-            struct Request {}
-            struct Response { let wishes: [Wish] }
-            struct ViewModel { let texts: [String] }
-        }
+        struct Request {}
+        struct Response { let wishes: [Wish] }
+        struct ViewModel { let texts: [String] }
+    }
     
+    //MARK: - for calendar
+    struct CalendarEventModel {
+        var title: String
+        var startDate: Date
+        var endDate: Date
+        var note: String?
+    }
 }

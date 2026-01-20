@@ -33,10 +33,7 @@ final class WishButtonsConfiguration {
     
     //MARK: - configure func
     
-    public static func configureAddWishButton(addWishButton : UIButton, in  view: UIView) {
-        view.addSubview(addWishButton)
-        addWishButton.pinBottom(to: view, Constants.buttonBottom)
-        addWishButton.pinHorizontal(to: view, Constants.buttonSide)
+    public static func configureAddWishButton(addWishButton : UIButton) {
         addWishButton.layer.cornerRadius = Constants.buttonRadius
     }
 }

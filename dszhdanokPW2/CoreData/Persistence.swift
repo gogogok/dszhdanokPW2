@@ -44,6 +44,25 @@ final class Persistence {
         }
     }
     
+    func wipeAllEvents() {
+        let ctx = container.viewContext
+        let fetch: NSFetchRequest<NSFetchRequestResult> = Event.fetchRequest()
+        let deleteReq = NSBatchDeleteRequest(fetchRequest: fetch)
+        deleteReq.resultType = .resultTypeObjectIDs
+        
+        do {
+            if let result = try ctx.execute(deleteReq) as? NSBatchDeleteResult,
+               let ids = result.result as? [NSManagedObjectID] {
+                let changes: [AnyHashable: Any] = [NSDeletedObjectsKey: ids]
+                NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [ctx])
+            }
+            try ctx.save()
+            ctx.refreshAllObjects()
+        } catch {
+            print("wipeAllEvents error:", error)
+        }
+    }
+    
     //MARK: - засовываем первое желание (которое будет изначально) в базу данных
     func seedIfEmpty() {
         let ctx = Persistence.shared.container.viewContext

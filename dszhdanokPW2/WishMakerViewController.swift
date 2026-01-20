@@ -31,7 +31,7 @@ final class WishMakerViewController : UIViewController {
         static let green: String = "Green"
         static let blue: String = "Blue"
         static let stackRadius: CGFloat = 10
-        static let stackBottom: CGFloat = 250
+        static let stackBottom: CGFloat = 200
         static let stackLeading: CGFloat = 20
         static let viewBottom: CGFloat = 20
         
@@ -40,7 +40,8 @@ final class WishMakerViewController : UIViewController {
         
         static let pattern = "^#[0-9A-Fa-f]{0,6}$"
         
-        
+        static let spacing: CGFloat = 10
+        static let actionStackBottom: CGFloat = 20
         
     }
 
@@ -50,6 +51,7 @@ final class WishMakerViewController : UIViewController {
     private let randomButton : UIButton = ActionButtonsConfiguration.makeRandomButton()
     private let hexButton : UIButton = ActionButtonsConfiguration.makeHexButton()
     private let addWishButton: UIButton = WishButtonsConfiguration.makeAddWishButton()
+    private let scheduleWishesButton: UIButton = ScheduleMissionsConfiguration.makeScheduleWishButton()
     
     private var hedealidersButton = UIButton()
     
@@ -65,6 +67,10 @@ final class WishMakerViewController : UIViewController {
     private let sliderRed = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
     private let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
     private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
+    
+    private var actionStack = UIStackView()
+    private var backGroundColor : UIColor?
+
 
     // MARK: - LifeCycle
     init(
@@ -125,20 +131,26 @@ final class WishMakerViewController : UIViewController {
         interactor.loadWishStoring(Model.PressShowStoringViewController.Request())
     }
     
+    @objc
+    private func scheduleWishesButtonPressed() {
+        interactor.loadWishCalendarWindow(Model.PressShowCalendarViewController.Request())
+    }
+    
     //MARK: - configure func
     
     private func configureUI() {
         view.backgroundColor = UIColor(named: Constants.backGroundName)
+        
+        
         TitleConfiguration.configureTitle(titleLable : titleLable, in: view)
         DescriptionConfiguration.configureDescription(descriptionLabel: descriptionLabel, titleLable: titleLable, in: view)
         
-        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton, in: view)
         
+        configureActionStack()
         SliderConfiguration.configureSliders(stack: stack, in: view, sliderRed: sliderRed, sliderBlue: sliderBlue, sliderGreen: sliderGreen, wishButton: addWishButton)
     
         
         hedealidersButton =  HideButtonConfiguration.configureButton(stack: stack, in: view)
-        
         
         ActionButtonsConfiguration.configureButton(description: descriptionLabel, stack: stackOfButtons, in: view, randomButton: randomButton, HEXButton: hexButton)
         
@@ -155,6 +167,20 @@ final class WishMakerViewController : UIViewController {
         subscribeSliders()
         
         addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
+        scheduleWishesButton.addTarget(self, action: #selector(scheduleWishesButtonPressed), for: .touchUpInside)
+    }
+    
+    private func configureActionStack() {
+        actionStack.axis = .vertical
+        view.addSubview(actionStack)
+        actionStack.spacing = Constants.spacing
+        for button in [addWishButton, scheduleWishesButton] {
+            actionStack.addArrangedSubview(button)
+        }
+        WishButtonsConfiguration.configureAddWishButton(addWishButton : addWishButton)
+        ScheduleMissionsConfiguration.configureScheduleWishButton(scheduleWishButton: scheduleWishesButton)
+        actionStack.pinBottom(to: view, Constants.actionStackBottom)
+        actionStack.pinHorizontal(to: view, Constants.stackLeading)
     }
     
     // MARK: - DisplayLogic func
@@ -165,7 +191,9 @@ final class WishMakerViewController : UIViewController {
     func displayPressRandom(_ viewModel: Model.PressChangeRandomColor.ViewModel) {
         randomButton.isEnabled = false
         UIView.animate(withDuration: Constants.durationOfAnimation) {
-            self.view.backgroundColor = getRandomColor()
+            let color = getRandomColor()
+            self.view.backgroundColor = color
+            self.changeButtonColor(with: color)
         } completion: { _ in
             self.randomButton.isEnabled = true
         }
@@ -217,15 +245,21 @@ final class WishMakerViewController : UIViewController {
     
     func subscribeSliders() {
         sliderRed.valueChanged = { [weak view] value in
-            view?.backgroundColor =  updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            let color = updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            view?.backgroundColor =  color
+            self.changeButtonColor(with: color)
         }
         
         sliderBlue.valueChanged = { [weak view] value in
-            view?.backgroundColor =  updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            let color = updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            view?.backgroundColor =  color
+            self.changeButtonColor(with: color)
         }
         
         sliderGreen.valueChanged = { [weak view] value in
-            view?.backgroundColor =  updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            let color = updateBackGroundColor(sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            view?.backgroundColor =  color
+            self.changeButtonColor(with: color)
         }
     }
     
@@ -241,6 +275,7 @@ final class WishMakerViewController : UIViewController {
         }
         guard let color = UIColor(hex: text) else { return}
         view?.backgroundColor = color
+        changeButtonColor(with: color)
         interactor.loadPressCloseRGB(Model.PressCloseButton.Request())
     }
     
@@ -266,9 +301,15 @@ final class WishMakerViewController : UIViewController {
     }
     
     func displayWishStoringViewController(_ viewModel: Model.PressShowStoringViewController.ViewModel) {
-        let second = WishStoringViewController(interactor: interactor)
+        let second = WishStoringViewController(interactor: interactor, backGroundColor: backGroundColor ?? .blue)
             (interactor as? ClickerInteractor)?.attachSecondView(second)
             present(second, animated: true)
+    }
+    
+    func displayWishCalendarController(_ viewModel: Model.PressShowCalendarViewController.ViewModel) {
+        let vc = WishCalendarViewController(interactor: interactor, backGroundColor: backGroundColor ?? .white)
+        (interactor as? ClickerInteractor)?.attachFourthView(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - func for displayChangesRGB
@@ -277,6 +318,16 @@ final class WishMakerViewController : UIViewController {
         return text.range(of: Constants.pattern, options: .regularExpression) != nil
     }
     
+    private func changeButtonColor(with color: UIColor) {
+        randomButton.setTitleColor(color, for: .normal)
+        hexButton.setTitleColor(color, for: .normal)
+        addWishButton.setTitleColor(color, for: .normal)
+        scheduleWishesButton.setTitleColor(color, for: .normal)
+        hedealidersButton.setTitleColor(color, for: .normal)
+        button?.setTitleColor(color, for: .normal)
+        closeButton?.setTitleColor(color, for: .normal)
+        backGroundColor = color
+    }
     
 }
 
