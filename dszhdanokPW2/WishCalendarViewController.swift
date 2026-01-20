@@ -41,12 +41,14 @@ final class WishCalendarViewController: UIViewController {
     private let worker = EventWorker()
     
     private let interactor: ClickerBusinessLogic
+    private var backGroundColor: UIColor = .white
     
     // MARK: - LifeCycle
     init(
-        interactor: ClickerBusinessLogic
+        interactor: ClickerBusinessLogic, backGroundColor: UIColor
     ) {
         self.interactor = interactor
+        self.backGroundColor = backGroundColor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -59,7 +61,7 @@ final class WishCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.loadFetchAllForCalendar(ClickerModel.FetchAll.Request())
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = backGroundColor
         title = "Wish Calendar"
         configureStackButtons()
         configureCollection()
@@ -136,7 +138,7 @@ final class WishCalendarViewController: UIViewController {
     
     @objc
     private func addButtonTapped() {
-        let third = WishEventCreationView(interactor: interactor)
+        let third = WishEventCreationView(interactor: interactor, backGroundColor: backGroundColor)
         (interactor as? ClickerInteractor)?.attachThirdView(third)
         present(third, animated: true)
     }
@@ -163,7 +165,7 @@ final class WishCalendarViewController: UIViewController {
     }
     
     private func openCreationWith(title: String) {
-        let vc = WishEventCreationView(interactor: interactor, initialTitle: title)
+        let vc = WishEventCreationView(interactor: interactor, backGroundColor: backGroundColor, initialTitle: title)
         (interactor as? ClickerInteractor)?.attachThirdView(vc)
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

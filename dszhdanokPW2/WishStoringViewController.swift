@@ -20,6 +20,7 @@ final class WishStoringViewController: UIViewController
     
     private let table = TableConfiguration.CreateTable()
     private var wishArray: [String] = ["I wish to add cells to the table"]
+    private var backGroundColor: UIColor = .white
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
@@ -52,9 +53,11 @@ final class WishStoringViewController: UIViewController
     // MARK: - LifeCycle
     
     init(
-        interactor: ClickerBusinessLogic
+        interactor: ClickerBusinessLogic, backGroundColor: UIColor
     ) {
+        
         self.interactor = interactor
+        self.backGroundColor = backGroundColor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -66,7 +69,7 @@ final class WishStoringViewController: UIViewController
     // MARK: - view load
     
     override func viewDidLoad() {
-        view.backgroundColor = .blue
+        view.backgroundColor = backGroundColor
         //wishArray = defaults.array(forKey: Constants.wishesKey) as? [String] ?? wishArray
         configureUI()
         table.register(WrittenWishCell.self, forCellReuseIdentifier: WrittenWishCell.reuseId)

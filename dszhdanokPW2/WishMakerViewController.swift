@@ -69,6 +69,7 @@ final class WishMakerViewController : UIViewController {
     private let sliderGreen = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
     
     private var actionStack = UIStackView()
+    private var backGroundColor : UIColor?
 
 
     // MARK: - LifeCycle
@@ -300,13 +301,13 @@ final class WishMakerViewController : UIViewController {
     }
     
     func displayWishStoringViewController(_ viewModel: Model.PressShowStoringViewController.ViewModel) {
-        let second = WishStoringViewController(interactor: interactor)
+        let second = WishStoringViewController(interactor: interactor, backGroundColor: backGroundColor ?? .blue)
             (interactor as? ClickerInteractor)?.attachSecondView(second)
             present(second, animated: true)
     }
     
     func displayWishCalendarController(_ viewModel: Model.PressShowCalendarViewController.ViewModel) {
-        let vc = WishCalendarViewController(interactor: interactor)
+        let vc = WishCalendarViewController(interactor: interactor, backGroundColor: backGroundColor ?? .white)
         (interactor as? ClickerInteractor)?.attachFourthView(vc)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -325,7 +326,7 @@ final class WishMakerViewController : UIViewController {
         hedealidersButton.setTitleColor(color, for: .normal)
         button?.setTitleColor(color, for: .normal)
         closeButton?.setTitleColor(color, for: .normal)
-    
+        backGroundColor = color
     }
     
 }

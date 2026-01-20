@@ -16,6 +16,7 @@ final class WishEventCreationView : UIViewController {
     private let initialTitle: String?
     
     private var addEventButton = NewEventConfiguration.buttonToAddEvent
+    private var backGroundColor: UIColor = .white
     
     // MARK: - Constants
     
@@ -32,10 +33,11 @@ final class WishEventCreationView : UIViewController {
     
     // MARK: - LifeCycle
     init(
-        interactor: ClickerBusinessLogic, initialTitle: String? = nil
+        interactor: ClickerBusinessLogic, backGroundColor: UIColor, initialTitle: String? = nil
     ) {
         self.interactor = interactor
         self.initialTitle = initialTitle
+        self.backGroundColor = backGroundColor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -58,7 +60,7 @@ final class WishEventCreationView : UIViewController {
     
     //MARK: - configure func
     private func configureUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = backGroundColor
         NewEventConfiguration.configure(in: view)
     }
     
