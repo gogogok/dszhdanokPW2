@@ -14,6 +14,7 @@ final class ClickerPresenter: ClickerPresentationLogic {
     weak var view: WishMakerViewController?
     weak var secondView: WishStoringViewController?
     weak var thirdView: WishEventCreationView?
+    weak var fourthView: WishCalendarViewController?
     
     // MARK: - first view PresentationLogic
     func presentStart(_ response: Model.Start.Response) {
@@ -76,6 +77,12 @@ final class ClickerPresenter: ClickerPresentationLogic {
         let texts = resp.wishes.map { $0.text ?? "" }
         self.secondView?.displayFetched(Model.FetchAll.ViewModel(texts: texts))
     }
+    
+    func presentFetchedForCalendar(_ resp: ClickerModel.FetchAll.Response) {
+        let texts = resp.wishes.map { $0.text ?? "" }
+        self.fourthView?.displayFetched(Model.FetchAll.ViewModel(texts: texts))
+    }
+    
     
     func presentShare(_ resp: Model.ShareWishes.Response) {
         self.secondView?.shareWishes(Model.ShareWishes.ViewModel(fileURL: resp.fileURL))

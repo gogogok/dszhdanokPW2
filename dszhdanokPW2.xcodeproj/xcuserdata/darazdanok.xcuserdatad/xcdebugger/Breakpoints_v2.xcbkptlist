@@ -158,8 +158,8 @@
             filePath = "dszhdanokPW2/WishEventCreationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "addEventButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>

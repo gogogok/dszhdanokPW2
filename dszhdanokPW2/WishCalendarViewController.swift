@@ -37,6 +37,7 @@ final class WishCalendarViewController: UIViewController {
     private var chooseButton = UIButton()
     
     private var eventArray: [Event] = []
+    private var wishes: [String] = []
     private let worker = EventWorker()
     
     private let interactor: ClickerBusinessLogic
@@ -57,12 +58,14 @@ final class WishCalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor.loadFetchAllForCalendar(ClickerModel.FetchAll.Request())
         view.backgroundColor = .systemBackground
         title = "Wish Calendar"
         configureStackButtons()
         configureCollection()
         
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        chooseButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
         
         reloadEvents()
         
@@ -128,14 +131,42 @@ final class WishCalendarViewController: UIViewController {
     //MARK: - for targets
     
     @objc private func onEventsDidChange() {
-           reloadEvents()
-       }
+        reloadEvents()
+    }
     
     @objc
     private func addButtonTapped() {
         let third = WishEventCreationView(interactor: interactor)
         (interactor as? ClickerInteractor)?.attachThirdView(third)
         present(third, animated: true)
+    }
+    
+    @objc
+    private func chooseButtonTapped() {
+        guard !wishes.isEmpty else { return }
+        
+        let alert = UIAlertController(title: "Choose a wish",
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
+        
+        for wish in wishes {
+                alert.addAction(UIAlertAction(title: wish, style: .default, handler: { [weak self, weak alert] _ in
+                    guard let self else { return }
+                    alert?.dismiss(animated: true) {
+                        self.openCreationWith(title: wish)
+                    }
+                }))
+            }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    private func openCreationWith(title: String) {
+        let vc = WishEventCreationView(interactor: interactor, initialTitle: title)
+        (interactor as? ClickerInteractor)?.attachThirdView(vc)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
@@ -200,5 +231,10 @@ extension WishCalendarViewController: UICollectionViewDelegateFlowLayout {
     private func reloadEvents() {
         eventArray = worker.fetchAll()
         collectionView.reloadData()
+    }
+    
+    public func displayFetched(_ vm: ClickerModel.FetchAll.ViewModel)
+    {
+        wishes = vm.texts
     }
 }

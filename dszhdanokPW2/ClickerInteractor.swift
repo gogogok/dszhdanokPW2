@@ -105,6 +105,12 @@ final class ClickerInteractor: ClickerBusinessLogic {
         presenter.presentFetched(Model.FetchAll.Response(wishes: fetched))
     }
     
+    func loadFetchAllForCalendar(_ req: ClickerModel.FetchAll.Request) {
+        let fetched = worker.fetchAll()
+        self.wishes = fetched
+        presenter.presentFetchedForCalendar(Model.FetchAll.Response(wishes: fetched))
+    }
+    
     func loadShareWishes(_ req: ClickerModel.ShareWishes.Request) {
         Persistence.shared.container.viewContext.refreshAllObjects()
         
@@ -137,7 +143,15 @@ final class ClickerInteractor: ClickerBusinessLogic {
     }
     
     func detachThirdView() {
-        presenter.secondView = nil
+        presenter.thirdView = nil
+    }
+    
+    func attachFourthView(_ view: WishCalendarViewController) {
+        presenter.fourthView = view
+    }
+    
+    func detachFourthView() {
+        presenter.fourthView = nil
     }
     
 }

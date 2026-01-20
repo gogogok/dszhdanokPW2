@@ -13,6 +13,8 @@ final class WishEventCreationView : UIViewController {
     typealias Model = ClickerModel
     private let interactor: ClickerBusinessLogic
     
+    private let initialTitle: String?
+    
     private var addEventButton = NewEventConfiguration.buttonToAddEvent
     
     // MARK: - Constants
@@ -29,11 +31,11 @@ final class WishEventCreationView : UIViewController {
     }
     
     // MARK: - LifeCycle
-    
     init(
-        interactor: ClickerBusinessLogic
+        interactor: ClickerBusinessLogic, initialTitle: String? = nil
     ) {
         self.interactor = interactor
+        self.initialTitle = initialTitle
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,23 +45,26 @@ final class WishEventCreationView : UIViewController {
     }
     
     // MARK: - view load
-    
     override func viewDidLoad() {
         configureUI()
         NewEventConfiguration.descriptionField.delegate = self
         addEventButton.addTarget(self, action: #selector(addEventButtonTapped), for: .touchUpInside)
+        
+        if let initialTitle, !initialTitle.isEmpty {
+            NewEventConfiguration.titleField.text = initialTitle
+        }
     }
     
     
     //MARK: - configure func
     private func configureUI() {
+        view.backgroundColor = .systemBackground
         NewEventConfiguration.configure(in: view)
     }
     
     //MARK: - Target func
     @objc
     private func addEventButtonTapped() {
-        
         guard
             let title = NewEventConfiguration.titleField.text, !title.isEmpty,
             let description = NewEventConfiguration.descriptionField.text,

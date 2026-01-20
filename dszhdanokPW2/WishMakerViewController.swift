@@ -307,6 +307,7 @@ final class WishMakerViewController : UIViewController {
     
     func displayWishCalendarController(_ viewModel: Model.PressShowCalendarViewController.ViewModel) {
         let vc = WishCalendarViewController(interactor: interactor)
+        (interactor as? ClickerInteractor)?.attachFourthView(vc)
         navigationController?.pushViewController(vc, animated: true)
     }
     
